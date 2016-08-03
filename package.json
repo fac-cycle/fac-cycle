@@ -6,8 +6,9 @@
   "scripts": {
     "test": "node test/tests.js",
     "lint": "node_modules/eslint/bin/eslint.js .",
-    "travis": "npm run lint && npm t",
-    "tdd": "nodemon test/tests.js"
+    "travis": "npm run lint && npm test",
+    "tdd": "nodemon test/tests.js",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,6 @@
   },
   "homepage": "https://github.com/fac-cycle/fac-cycle#readme",
   "devDependencies": {
-    "commitizen": "^2.8.3",
     "cz-conventional-changelog": "^1.1.6",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
@@ -38,6 +38,9 @@
     "validate-commit-msg": "^2.6.1"
   },
   "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
     "ghooks": {
       "pre-commit": "npm run travis",
       "commit-msg": "validate-commit-msg",
