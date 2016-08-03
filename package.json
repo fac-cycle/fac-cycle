@@ -1,0 +1,26 @@
+{
+  "name": "fac-cycle",
+  "version": "1.0.0",
+  "description": "Better Freecycle!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-cycle/fac-cycle.git"
+  },
+  "keywords": [
+    "freecycle",
+    "fac",
+    "react",
+    "postgres",
+    "node"
+  ],
+  "author": "FAC8",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-cycle/fac-cycle/issues"
+  },
+  "homepage": "https://github.com/fac-cycle/fac-cycle#readme"
+}
