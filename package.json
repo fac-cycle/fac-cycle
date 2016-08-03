@@ -8,7 +8,8 @@
     "lint": "node_modules/eslint/bin/eslint.js .",
     "travis": "npm run lint && npm test",
     "tdd": "nodemon test/tests.js",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "coverage":"node ./node_modules/istanbul/lib/cli.js cover app.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^6.0.0",
     "ghooks": "^1.3.2",
+    "istanbul": "^0.4.4",
     "validate-commit-msg": "^2.6.1"
   },
   "config": {
