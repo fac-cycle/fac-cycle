@@ -22,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/fac-cycle/fac-cycle/issues"
   },
-  "homepage": "https://github.com/fac-cycle/fac-cycle#readme"
+  "homepage": "https://github.com/fac-cycle/fac-cycle#readme",
+  "devDependencies": {
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^6.0.0"
+  }
 }
