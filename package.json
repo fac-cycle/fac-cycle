@@ -9,7 +9,8 @@
     "travis": "npm run lint && npm test",
     "tdd": "nodemon test/tests.js",
     "commit": "git-cz",
-    "coverage":"node ./node_modules/istanbul/lib/cli.js cover app.js"
+    "coverage": "node ./node_modules/istanbul/lib/cli.js cover app.js",
+    "codeclimate": "CODECLIMATE_REPO_TOKEN=fd0d83d3fa76e4eb63893d5b5d42dc9c08d09775184f48799e5760cfb9e5bf61 codeclimate-test-reporter < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
   },
   "homepage": "https://github.com/fac-cycle/fac-cycle#readme",
   "devDependencies": {
+    "codeclimate-test-reporter": "^0.3.3",
     "cz-conventional-changelog": "^1.1.6",
     "eslint": "^3.2.2",
     "eslint-config-airbnb": "^10.0.0",
@@ -44,7 +46,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run travis",
+      "pre-commit": "npm run travis && npm run coverage && npm run codeclimate",
       "commit-msg": "validate-commit-msg",
       "post-merge": "npm install",
       "post-rewrite": "npm install"
