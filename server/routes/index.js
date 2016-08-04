@@ -5,5 +5,5 @@ const itemRoutes = require('./item_routes');
 module.exports = [
   staticRoutes,
   ...userRoutes,
-  ...itemRoutes
+  ...itemRoutes,
 ];
