@@ -14,6 +14,8 @@ The backend code will be served from port 3000 in development.
 
 NOTE: if you're working on the frontend but need to make queries to the backend, you will also need to ensure the backend server is running as well.
 
-## Running frontend tests
+## Running tests
 
-To run the tests run: `npm run test-src`
+To run the frontend tests run: `npm run test-src`
+
+To run the backend tests run: `npm run test-server`
