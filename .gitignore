@@ -2,9 +2,6 @@ node_modules
 *.env
 *.swo
 *swp
-<<<<<<< HEAD
 npm-debug.log
-=======
 *.vim
 coverage
->>>>>>> master
