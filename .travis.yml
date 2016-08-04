@@ -1,8 +1,8 @@
 language: node_js
 node_js:
-  - '6' 
+  - '6'
 
-addons:
+env:
   global:
     secure: 2GiAWUS1dd+gLgtNWleLaO/lRlyHSZp54KSmjySuAuypRlN0pWnqbrZVz5ODurkfAgeEUdUwaU8V02muUybmZru3O7BSn+uA9Q/FrNrTrZcDlVw9pomkyUmPp5Va8y9a31wd7I1JHof7DMf4K3BEfSTdF4YUkTb1OftNzEl99Ps1N7HAImdBJP09fBlEAtGYnrf33KRwHDG1cskL/P/MEBEhtBUBFC/27Q2dVW5E2lTLzu1Pa0IVmsHC3QbskYjcBE4CRhhmoGA6TTocyg7c2hunU4o9XQqhVYZxnS1Y+zhc0QJvkaMINuk6bQwPRwUmjhX9nxwmw8exKE2n/jXJg6TpRFBCA0lLMobiv85TX8dqqpfyKXfkVBqSDolstg6A9MyWpv8br/+ygSMY21WnJvvG34DAv29E64YgzV2IXAtAvdpnuW8mPTSiK06Q2QAKCcqX5KtR/GrywwirfnA0gLb/VAl7xZrFHVIv+NHM/6UaoKd0EazAy0FF3T91aD0onHtMKc/dKl8RlmJN9wSzj4bfH7M9uho5oY8JVXK8kmx0rDCwtHIaUjSxDuHugQK8khbeOMxYfV0bIRM4KmNLkRAYeJIwEWXPLynj56omanM4D57AgZKYfri7WG5dUkUF8LeM0eyZjf9+jok7L98PVLHWLrdpqLrZiSUtGQcwYL4=
 
@@ -16,6 +16,6 @@ deployd:
 
 before_script:
   - npm install -g codeclimate-test-reporter
-after_script:
-  - codeclimate-test-reporter < coverage/lcov.info
 
+after_script:
+  - npm run test-coverage | codeclimate-test-reporter
