@@ -4,13 +4,11 @@
   "description": "Better Freecycle!",
   "main": "index.js",
   "scripts": {
-    "test": "node test/tests.js",
-    "lint": "node_modules/eslint/bin/eslint.js .",
-    "travis": "npm run lint && npm test",
-    "tdd": "nodemon test/tests.js",
-    "commit": "git-cz",
-    "coverage": "node ./node_modules/istanbul/lib/cli.js cover app.js",
-    "codeclimate": "CODECLIMATE_REPO_TOKEN=fd0d83d3fa76e4eb63893d5b5d42dc9c08d09775184f48799e5760cfb9e5bf61 codeclimate-test-reporter < coverage/lcov.info"
+    "test-src": "ava --require babel-register test_src/**/*",
+    "lint": "eslint './+(src|test_src)/**/*.+(js|jsx)'",
+    "webpack-dev": "webpack-dev-server",
+    "webpack-build": "webpack",
+    "start-server": "nodemon server"
   },
   "repository": {
     "type": "git",
@@ -30,6 +28,11 @@
   },
   "homepage": "https://github.com/fac-cycle/fac-cycle#readme",
   "devDependencies": {
+    "ava": "^0.15.2",
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
     "codeclimate-test-reporter": "^0.3.3",
     "cz-conventional-changelog": "^1.1.6",
     "eslint": "^3.2.2",
@@ -38,18 +41,24 @@
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^6.0.0",
     "ghooks": "^1.3.2",
-    "istanbul": "^0.4.4",
-    "validate-commit-msg": "^2.6.1"
+    "validate-commit-msg": "^2.6.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run travis && npm run coverage && npm run codeclimate",
-      "commit-msg": "validate-commit-msg",
-      "post-merge": "npm install",
-      "post-rewrite": "npm install"
+      "pre-commit": "npm run lint && npm run test-src",
+      "commit-msg": "validate-commit-msg"
     }
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "hapi": "^14.1.0",
+    "inert": "^4.0.1",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
   }
 }
