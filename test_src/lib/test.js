@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'ava';
-import add from '../src/lib/add';
+import add from '../../src/lib/add';
 
 test('environment works', t => {
   t.deepEqual([1, 2, 3], [1, 2, 3]);

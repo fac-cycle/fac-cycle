@@ -4,7 +4,10 @@
   "description": "Better Freecycle!",
   "main": "index.js",
   "scripts": {
-    "test-src": "ava --require babel-register test_src/**/*",
+    "test-src": "ava --verbose --require babel-register test_src/**/*",
+    "test-server": "ava --verbose test_server/**/*",
+    "test-serial": "npm run test-src -- --serial && npm run test-server -- --serial",
+    "test": "npm run test-src && npm run test-server",
     "lint": "eslint './+(src|test_src)/**/*.+(js|jsx)'",
     "webpack-dev": "webpack-dev-server",
     "webpack-build": "webpack",
@@ -50,7 +53,7 @@
       "path": "./node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run lint && npm run test-src",
+      "pre-commit": "npm run lint && npm test",
       "commit-msg": "validate-commit-msg"
     }
   },
