@@ -12,7 +12,7 @@
     "test-serial": "npm run test-src -- --serial && npm run test-server -- --serial",
     "fail": "ebanner 'fix that shit!!' && npm run fail",
     "test": "npm run test-src && npm run test-server",
-    "test-coverage": "nyc npm test-serial",
+    "test-coverage": "nyc npm run test",
     "lint": "eslint './+(src|test_src)/**/*.+(js|jsx)'",
     "webpack-dev": "webpack-dev-server",
     "webpack-build": "webpack",
