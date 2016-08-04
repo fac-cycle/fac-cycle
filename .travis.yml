@@ -1,10 +1,21 @@
 language: node_js
-node_js: node
+node_js:
+  - '6' 
+
 addons:
   global:
     secure: 2GiAWUS1dd+gLgtNWleLaO/lRlyHSZp54KSmjySuAuypRlN0pWnqbrZVz5ODurkfAgeEUdUwaU8V02muUybmZru3O7BSn+uA9Q/FrNrTrZcDlVw9pomkyUmPp5Va8y9a31wd7I1JHof7DMf4K3BEfSTdF4YUkTb1OftNzEl99Ps1N7HAImdBJP09fBlEAtGYnrf33KRwHDG1cskL/P/MEBEhtBUBFC/27Q2dVW5E2lTLzu1Pa0IVmsHC3QbskYjcBE4CRhhmoGA6TTocyg7c2hunU4o9XQqhVYZxnS1Y+zhc0QJvkaMINuk6bQwPRwUmjhX9nxwmw8exKE2n/jXJg6TpRFBCA0lLMobiv85TX8dqqpfyKXfkVBqSDolstg6A9MyWpv8br/+ygSMY21WnJvvG34DAv29E64YgzV2IXAtAvdpnuW8mPTSiK06Q2QAKCcqX5KtR/GrywwirfnA0gLb/VAl7xZrFHVIv+NHM/6UaoKd0EazAy0FF3T91aD0onHtMKc/dKl8RlmJN9wSzj4bfH7M9uho5oY8JVXK8kmx0rDCwtHIaUjSxDuHugQK8khbeOMxYfV0bIRM4KmNLkRAYeJIwEWXPLynj56omanM4D57AgZKYfri7WG5dUkUF8LeM0eyZjf9+jok7L98PVLHWLrdpqLrZiSUtGQcwYL4=
 
+deployd:
+  provider: heroku
+  api_key:
+    secure: h/QKWnhv5ot4qGrzg7BgJNnZH8AuYE8Rf3+CNSPvC8Yvwoatl5EMdIrj3W932yFuuFFq+erZKufanWWSTrTBePfuzwa6BeBISslz9m3Xbv+zRC4fnXn3ytVQMboYfcPQmbclrDd/lMimFEHy3095gA8tKAiqcLjRLPUN+B53W6hj7rF8iqRq0ypFkvuQlLQSSmlMvrMEgTILiifSrMES9LV0EGEIL0pw89KdwHNbSaqIc+nlnwlCzbMyk8txaMTB6tMKt3DUN5/30oY6mG5BWHrmHc363aiVwQetUIt9KAdw/WMlTZFEBY4IO8P7yJZNc7NMqHbXUMMQjCrOoKOYpLE+82ei7tCpRK8ubjkQe3Z3jIGmyGvxWZiTHiZEDBSW8r6SksyDPtLgt/0porYZV6o3vJPF18m8xEzq0oNNYWM2lZJfV8UOVxFClpAwix4IyPeQOeBWkFdOmnFV6ggSnKwENErbUPuxR8qjNCeDF6BfDOKfu7WgjkRAwZvLv7boXo1PaVTo7AtfeAWKrFpqf8ouGgZmqnMoAQJCMcvGc5d4t5Gc2FsU1sFlFibped3hf5K7lBh27MW427kU2J++j7351Z0lRWUgwPswAWjcxI6U+AC3liKOrjJ7g/le/IkjGVpqGJXwV4bZbHmRtT2thafF0Bl3r+2RPZkBD1jIFg8=
+  app: fac-cycle
+  on:
+    tags: true
+
 before_script:
-    - npm install -g codeclimate-test-reporter
+  - npm install -g codeclimate-test-reporter
 after_script:
-    - codeclimate-test-reporter < coverage/lcov.info
+  - codeclimate-test-reporter < coverage/lcov.info
+
