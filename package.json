@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Better Freecycle!",
   "main": "index.js",
+  "engines": {
+    "node": "6"
+  },
   "scripts": {
     "test-src": "ava --require babel-register test_src/**/*",
     "lint": "eslint './+(src|test_src)/**/*.+(js|jsx)'",
