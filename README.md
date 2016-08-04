@@ -12,7 +12,9 @@
 run ``npm install ``  
 
 ### workflow
-Normal contributors to the repo dont have writing rights on the main repo. The suggested workflow is to fork the repo, push your commits there on the relevant branch and create a pull request.
+Normal contributors to the repo dont have writing rights to merge branches in to the master.
+You can create new branches and create pull request and comment on them.
+
 
 ### How to commit
 
