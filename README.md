@@ -22,7 +22,7 @@ The choosen linting rules are the  airbnb guidelines for eslint.
 They are part of the dependancies of this repo, but you might need to configure your editor accordingly. 
 
 
-###How to commit bis
+###How to commit - part 2
 
 We enforce commit message rules on every attemp to commit something to the repo. Write every commit as follows:  
 ``<type>(<scope>): <subject>``  
@@ -36,7 +36,7 @@ any one word string.
 the subject is what you actually wanted to say. Write it in an imperative fashion. See this example:  
 ``chore(setup): set up code coverage``
 
-###How to commit bis bis 
+###How to commit - part 3 
 
 We enforce testing on every attempt to commit. If your commit breakes any of the tests your commit woll be rejected.
 
