@@ -3,6 +3,7 @@ const plugins = require('./plugins');
 const routes = require('./routes');
 require('colors');
 
+
 // Create server instance
 const server = new Hapi.Server();
 
@@ -23,3 +24,5 @@ server.register(plugins, registerError => {
     console.log(`Sever running at ${server.info.uri}`.cyan);
   });
 });
+
+module.exports = server;
