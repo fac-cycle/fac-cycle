@@ -5,6 +5,7 @@ import { exec } from 'child_process';
 import path from 'path';
 import { addUserDatabase } from '../../server/lib/add_user_database.js';
 import { getUserDatabase } from '../../server/lib/get_user_database.js';
+import { updateUserDatabase } from '../../server/lib/update_user_database.js';
 
 const dumpDbFile = path.join(__dirname, '..', 'fixtures', 'dumpdb.sql');
 const dropDbFile = path.join(__dirname, '..', 'fixtures', 'dropdb.sql');
@@ -84,7 +85,7 @@ test.cb('select user to database', t => {
     postcode: 'E2 0SY',
   };
   const fakeResult = {
-    id: 1,
+    id: null,
     name: 'Anneka',
     email: 'anneka@anneka.com',
     facebook_id: '12345678',
@@ -94,10 +95,46 @@ test.cb('select user to database', t => {
     lng: '-0.0423161603498166',
   };
   addUserDatabase(connectionString, fakeUser, (addUserErr, addUserReply) => {
+    fakeResult.id = addUserReply.rows[0].id;
     getUserDatabase(connectionString, addUserReply.rows[0].id, (getUserErr, getUserReply) => {
       t.pass(getUserReply.command, 'SELECT', 'Should return an select command');
       t.deepEqual(getUserReply.rows[0], fakeResult, 'Should return the fake user');
       t.end();
     });
+  });
+});
+
+test.cb('update user to database', t => {
+  const fakeUser = {
+    name: 'Steve',
+    email: 'steve@steve.com',
+    facebookId: '12245678',
+    profileImgUrl: 'steve.jpg',
+    postcode: 'E2 0SY',
+  };
+  const fakeUpdate = {
+    name: 'John',
+    email: 'john@john.com',
+  };
+  const fakeResult = {
+    id: null,
+    name: 'John',
+    email: 'john@john.com',
+    facebook_id: '12245678',
+    profile_img_url: 'steve.jpg',
+    postcode: 'E2 0SY',
+    lat: '51.5295460939963',
+    lng: '-0.0423161603498166',
+  };
+  addUserDatabase(connectionString, fakeUser, (addUserErr, addUserReply) => {
+    fakeResult.id = addUserReply.rows[0].id;
+    updateUserDatabase(connectionString, addUserReply.rows[0].id, fakeUpdate,
+      (updateUserErr, updateUserReply) => {
+        t.pass(updateUserReply.command, 'UPDATE', 'Should return an update command');
+        getUserDatabase(connectionString, addUserReply.rows[0].id, (getUserErr, getUserReply) => {
+          t.deepEqual(getUserReply.rows[0], fakeResult, 'Should return the fake user');
+          t.end();
+        });
+      });
   });
 });
