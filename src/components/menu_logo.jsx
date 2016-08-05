@@ -1,11 +1,11 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 
-class Logo extends React.Component {
+class LogoMenu extends React.Component {
   render() {
     return (
       <div
-        className="logo"
+        className="logoMenu"
         style={{
           backgroundImage: 'url(images/Ren.jpg)',
           height: '30vh',
@@ -13,8 +13,8 @@ class Logo extends React.Component {
       >
       &nbsp;
       </div>
-    );
+     );
   }
-}
+ }
 
-export default Logo;
+export default LogoMenu;
