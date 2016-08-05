@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'ava';
 import pg from 'pg';
 import { exec } from 'child_process';
@@ -37,7 +38,9 @@ const cleanDB = (next) => {
 };
 
 test.cb.before('drop testdb database', t => {
-  createDB(t.end);
+  cleanDB(() => {
+    createDB(t.end);
+  });
 });
 
 test.cb.beforeEach(t => {
