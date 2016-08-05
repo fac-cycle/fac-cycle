@@ -1,5 +1,12 @@
 import React from 'react';
 
-const App = () => (<h1>Hello world!!!</h1>);
+import Image from './ItemImage.jsx';
+
+class App extends React.Component {
+  render() {
+    return (
+    <Image imgClass="imgClass" imgUrl="http://www.stokowski.org/images/Nikisch_BSO_1891_NH.jpg" />
+  ); }
+}
 
 export default App;
