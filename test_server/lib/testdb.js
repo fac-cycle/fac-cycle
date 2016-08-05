@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'ava';
 import pg from 'pg';
 import { exec } from 'child_process';
