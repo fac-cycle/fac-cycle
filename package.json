@@ -70,10 +70,12 @@
   },
   "dependencies": {
     "colors": "^1.1.2",
+    "env2": "^2.1.0",
     "hapi": "^14.1.0",
     "inert": "^4.0.1",
     "pg": "^6.0.3",
     "react": "^15.3.0",
-    "react-dom": "^15.3.0"
+    "react-dom": "^15.3.0",
+    "superagent": "^2.1.0"
   }
 }
