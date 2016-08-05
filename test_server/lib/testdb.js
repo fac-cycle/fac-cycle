@@ -38,7 +38,9 @@ const cleanDB = (next) => {
 };
 
 test.cb.before('drop testdb database', t => {
-  createDB(t.end);
+  cleanDB(() => {
+    createDB(t.end);
+  });
 });
 
 test.cb.beforeEach(t => {
