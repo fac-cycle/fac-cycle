@@ -7,7 +7,7 @@ class Logo extends React.Component {
       <div
         className="logo"
         style={{
-          backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/en/9/95/Ren_H%C3%B6ek.jpg)',
+          backgroundImage: 'url(images/Ren.jpg)',
           height: '30vh',
           width: '40vh' }}
       >
@@ -16,9 +16,5 @@ class Logo extends React.Component {
     );
   }
 }
-
-Logo.propTypes = {
-  logoUrl: React.PropTypes.string,
-};
 
 export default Logo;
