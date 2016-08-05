@@ -1,5 +1,14 @@
+/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 
-const App = () => (<h1>Hello world!!!</h1>);
+import ItemTitle from './ItemTitle.jsx';
+
+class App extends React.Component {
+  render() {
+    return (
+      <ItemTitle title="Hey!" />
+    );
+  }
+}
 
 export default App;
