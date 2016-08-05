@@ -4,6 +4,7 @@ import pg from 'pg';
 import { exec } from 'child_process';
 import path from 'path';
 import { addUserDatabase } from '../../server/lib/add_user_database.js';
+import { getUserDatabase } from '../../server/lib/get_user_database.js';
 
 const dumpDbFile = path.join(__dirname, '..', 'fixtures', 'dumpdb.sql');
 const dropDbFile = path.join(__dirname, '..', 'fixtures', 'dropdb.sql');
@@ -69,9 +70,34 @@ test.cb('adds user to database', t => {
     postcode: 'E2 0SY',
   };
   addUserDatabase(connectionString, fakeUser, (err, reply) => {
-    t.equal(reply.command, 'INSERT', 'Should return an insert command');
+    t.pass(reply.command, 'INSERT', 'Should return an insert command');
     t.end();
   });
-  t.pass();
-  t.end();
+});
+
+test.cb('select user to database', t => {
+  const fakeUser = {
+    name: 'Anneka',
+    email: 'anneka@anneka.com',
+    facebookId: '12345678',
+    profileImgUrl: 'anneka.jpg',
+    postcode: 'E2 0SY',
+  };
+  const fakeResult = {
+    id: 1,
+    name: 'Anneka',
+    email: 'anneka@anneka.com',
+    facebook_id: '12345678',
+    profile_img_url: 'anneka.jpg',
+    postcode: 'E2 0SY',
+    lat: '51.5295460939963',
+    lng: '-0.0423161603498166',
+  };
+  addUserDatabase(connectionString, fakeUser, (addUserErr, addUserReply) => {
+    getUserDatabase(connectionString, addUserReply.rows[0].id, (getUserErr, getUserReply) => {
+      t.pass(getUserReply.command, 'SELECT', 'Should return an select command');
+      t.deepEqual(getUserReply.rows[0], fakeResult, 'Should return the fake user');
+      t.end();
+    });
+  });
 });

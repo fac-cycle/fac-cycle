@@ -8,8 +8,8 @@ CREATE TABLE users (
   facebook_id     VARCHAR(100)    NOT NULL unique,
   profile_img_url VARCHAR(500)    NOT NULL,
   postcode        VARCHAR(8)      NOT NULL,
-  lat             VARCHAR(10)     NOT NULL,
-  lng             VARCHAR(10)     NOT NULL
+  lat             VARCHAR(20)     NOT NULL,
+  lng             VARCHAR(20)     NOT NULL
 );
 
 CREATE TABLE items (
@@ -17,8 +17,8 @@ CREATE TABLE items (
   title           VARCHAR(140)    NOT NULL,
   description     VARCHAR(1000)   NOT NULL,
   postcode        VARCHAR(8)      NOT NULL,
-  lat             VARCHAR(10)     NOT NULL,
-  lng             VARCHAR(10)     NOT NULL,
+  lat             VARCHAR(20)     NOT NULL,
+  lng             VARCHAR(20)     NOT NULL,
   category        VARCHAR(20)     NOT NULL,
   image_url       VARCHAR(200)    NOT NULL,
   user_id         INT NOT NULL unique references users(id)

@@ -6,7 +6,7 @@ const getGeoLocation = (postcode, callback) => {
   request(base + postcode, (err, response, body) => {
     if (err) callback(err);
     if (!err && response.statusCode === 200) {
-      callback(err, body.result);
+      callback(err, JSON.parse(body).result);
     }
   });
 };
@@ -16,7 +16,7 @@ const addUserDatabase = (connection, user, callback) => {
   const email = user.email;
   const facebookId = user.facebookId;
   const profileImgUrl = user.profileImgUrl;
-  const postcode = user.postCode;
+  const postcode = user.postcode;
   const client = pgClient(connection);
   getGeoLocation(postcode, (err, reply) => {
     const lat = reply.latitude;
