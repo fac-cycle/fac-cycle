@@ -1,6 +1,7 @@
 const querystring = require('querystring');
 const superagent = require('superagent');
 
+const jwt = require('jsonwebtoken');
 
 const payload = facebookCode =>
   querystring.stringify({
@@ -42,7 +43,16 @@ const welcome = {
       if (accessTokenError) throw accessTokenError;
       getUserDetails(accessToken, (userDetailsError, userDetails) => {
         if (userDetailsError) throw userDetailsError;
-        reply(userDetails);
+
+        const jwtpayload = {
+          username: userDetails.name,
+          facebookId: userDetails.id,
+          accessToken,
+        };
+
+        const jsonWebToken = jwt.sign(jwtpayload, process.env.JWT_SECRET);
+
+        reply.redirect(`/?jwt=${jsonWebToken}`);
       });
     });
   },
