@@ -21,5 +21,5 @@ module.exports = [
     handler: (request, reply) => {
       reply().code(200);
     },
-  }
+  },
 ];
