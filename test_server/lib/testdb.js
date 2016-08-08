@@ -6,6 +6,7 @@ import path from 'path';
 import { addUserDatabase } from '../../server/lib/add_user_database.js';
 import { getUserDatabase } from '../../server/lib/get_user_database.js';
 import { updateUserDatabase } from '../../server/lib/update_user_database.js';
+import addItemDatabase from '../../server/lib/add_item_database.js';
 
 const dumpDbFile = path.join(__dirname, '..', 'fixtures', 'dumpdb.sql');
 const dropDbFile = path.join(__dirname, '..', 'fixtures', 'dropdb.sql');
@@ -136,5 +137,31 @@ test.cb('update user to database', t => {
           t.end();
         });
       });
+  });
+});
+
+test.cb('adds item to database', t => {
+  const fakeUser = {
+    name: 'Steve',
+    email: 'steve@steve.com',
+    facebookId: '12245678',
+    profileImgUrl: 'steve.jpg',
+    postcode: 'E2 0SY',
+  };
+  const fakeItem = {
+    title: 'My crappy sofa',
+    description: 'This is the worst sofa that the world has ever seen. It\'s seriously gross',
+    postcode: 'E2 0SY',
+    category: 'furniture',
+    imageUrl: 'https://image-hosting-website/blah1234.jpg',
+    userId: '1', // Taken from JSON Web Token/Cookie
+    lat: '51.5295460939963', // not used by addItem() or updateItem()
+    lng: '-0.0423161603498166', // not used by addItem() or updateItem()
+  };
+  addUserDatabase(connectionString, fakeUser, () => {
+    addItemDatabase(connectionString, fakeItem, (err, reply) => {
+      t.pass(reply.command, 'INSERT', 'Should return an insert command');
+      t.end();
+    });
   });
 });
