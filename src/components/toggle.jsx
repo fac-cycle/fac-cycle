@@ -23,8 +23,9 @@ class ToggleContainerViews extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={() => { this.handleClick('View1'); }}>View1</button>
-        <button onClick={() => { this.handleClick('View2'); }}>View2</button>
+        <button onClick={() => { this.handleClick('NearYou'); }}>NearYou</button>
+        <button onClick={() => { this.handleClick('MyAds'); }}>MyAds</button>
+        <button onClick={() => { this.handleClick('Search'); }}>Search</button>
         <HandleView view={this.state.view} />
       </div>
     );

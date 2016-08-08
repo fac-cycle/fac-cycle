@@ -11,13 +11,14 @@ class HandleView extends React.Component {
 
     let value;
 
-    if (view === 'View1') {
-      value = <h1>HEY</h1>;
-    } else if (view === 'View2') {
-      value = <h1>BYE</h1>;
+    if (view === 'NearYou') {
+      value = <h1>You are now in Near you</h1>;
+    } else if (view === 'MyAds') {
+      value = <h1>You are now in My Ads</h1>;
+    } else if (view === 'Search') {
+      value = <h1>You are now in Search</h1>;
     }
-
-    return (value);
+    return value;
   }
 }
 
