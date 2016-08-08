@@ -1,5 +1,4 @@
 const pg = require('pg');
-require('env2')('config.env');
 
 const pgClient = (connection) => {
   const connectionString = process.env.DATABASE_URL || connection;
