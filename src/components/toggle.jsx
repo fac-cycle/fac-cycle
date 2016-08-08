@@ -7,7 +7,7 @@ class ToggleContainerViews extends React.Component {
   constructor(props) {
     super();
 
-    const view = props.defaultView;
+    const view = props.defaults.view;
 
     this.state = {
       view,
@@ -15,7 +15,9 @@ class ToggleContainerViews extends React.Component {
   }
 
   handleClick(view) {
-    this.setState({
+    this.props.store.dispatch({
+      type: 'toggle',
+      async: false,
       view,
     });
   }
@@ -23,17 +25,18 @@ class ToggleContainerViews extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={() => { this.handleClick('NearYou'); }}>NearYou</button>
-        <button onClick={() => { this.handleClick('MyAds'); }}>MyAds</button>
-        <button onClick={() => { this.handleClick('Search'); }}>Search</button>
-        <HandleView view={this.state.view} />
+        <button {...this.props} onClick={() => { this.handleClick('NearYou'); }}>NearYou</button>
+        <button {...this.props} onClick={() => { this.handleClick('MyAds'); }}>MyAds</button>
+        <button {...this.props} onClick={() => { this.handleClick('Search'); }}>Search</button>
+        <HandleView {...this.props} view={this.props.store.state.view} />
       </div>
     );
   }
 }
 
 ToggleContainerViews.propTypes = {
-  defaultView: React.PropTypes.string,
+  defaults: React.PropTypes.object,
+  store: React.PropTypes.object,
 };
 
 export default ToggleContainerViews;
