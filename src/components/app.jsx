@@ -1,5 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
+import Menu from './menu';
 import actions from '../actions';
 
 class App extends React.Component {
@@ -15,7 +16,7 @@ class App extends React.Component {
         this.setState(() => {
           switch (action.type) {
             case 'SEARCH':
-              return search(this.state, action);
+              return actions.search(this.state, action);
             default: return this.state;
           }
         });
@@ -27,9 +28,12 @@ class App extends React.Component {
     };
   }
   render() {
-    const store = {state: this.state, dispatch: this.dispatch};
+    const store = { state: this.state, dispatch: this.dispatch };
     return (
-      <h1>Hello world</h1>
+      <div>
+        <h1>Hello world</h1>
+        <Menu store={store} />
+      </div>
     );
   }
 }
