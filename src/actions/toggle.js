@@ -1,3 +1,5 @@
-module.exports = (state, action) => ({
-  view: action.view,
-});
+module.exports = (state, action) => {
+  action.end({
+    view: action.view,
+  });
+};
