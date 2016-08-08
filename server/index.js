@@ -1,3 +1,4 @@
+require('env2')('config.env');
 const Hapi = require('hapi');
 const plugins = require('./plugins');
 const routes = require('./routes');
