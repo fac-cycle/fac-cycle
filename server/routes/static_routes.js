@@ -1,5 +1,5 @@
 // Serve all static files from ../public
-module.exports = {
+module.exports = [{
   method: 'GET',
   path: '/{param*}',
   handler: {
@@ -8,4 +8,4 @@ module.exports = {
       listing: true,
     },
   },
-};
+}];
