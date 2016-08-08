@@ -1,15 +1,5 @@
-const request = require('request');
 const pgClient = require('./pg_client');
-
-const getGeoLocation = (postcode, callback) => {
-  const base = 'https://api.postcodes.io/postcodes/';
-  request(base + postcode, (err, response, body) => {
-    if (err) callback(err);
-    if (!err && response.statusCode === 200) {
-      callback(err, JSON.parse(body).result);
-    }
-  });
-};
+const { getGeoLocation } = require('./geolocation');
 
 const addUserDatabase = (connection, user, callback) => {
   const name = user.name;
