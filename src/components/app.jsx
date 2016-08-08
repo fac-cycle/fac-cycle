@@ -2,6 +2,8 @@
 import React from 'react';
 import Menu from './menu';
 import actions from '../actions';
+import Navigator from './navigator.jsx';
+
 
 class App extends React.Component {
   constructor() {
@@ -33,6 +35,7 @@ class App extends React.Component {
       <div>
         <h1>Hello world</h1>
         <Menu store={store} />
+        <Navigator />
       </div>
     );
   }
