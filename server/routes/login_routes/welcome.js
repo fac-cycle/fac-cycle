@@ -11,6 +11,11 @@ const payload = facebookCode =>
     redirect_uri: `${process.env.BASE_URL}/welcome`,
   });
 
+const getUserToken = (facebookToken) =>
+  ({
+    accessToken: facebookToken.access_token,
+    expiryDate: Date.now() + (facebookToken.expires_in * 1000),
+  });
 
 const getAccessToken = (code, callback) => {
   const qs = payload(code);
@@ -20,7 +25,7 @@ const getAccessToken = (code, callback) => {
     .set('Accept', 'application/json')
     .end((err, response) => {
       if (err) callback(err);
-      else callback(err, response.body.access_token);
+      else callback(null, getUserToken(response.body));
     });
 };
 
@@ -39,16 +44,15 @@ const welcome = {
   method: 'GET',
   path: '/welcome',
   handler(request, reply) {
-    getAccessToken(request.query.code, (accessTokenError, accessToken) => {
+    getAccessToken(request.query.code, (accessTokenError, userToken) => {
       if (accessTokenError) throw accessTokenError;
-      getUserDetails(accessToken, (userDetailsError, userDetails) => {
+      getUserDetails(userToken.accessToken, (userDetailsError, userDetails) => {
         if (userDetailsError) throw userDetailsError;
 
-        const jwtpayload = {
+        const jwtpayload = Object.assign({
           username: userDetails.name,
           facebookId: userDetails.id,
-          accessToken,
-        };
+        }, userToken);
 
         const jsonWebToken = jwt.sign(jwtpayload, process.env.JWT_SECRET);
 
