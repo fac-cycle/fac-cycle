@@ -35,7 +35,7 @@ class App extends React.Component {
       <div>
         <h1>Hello world</h1>
         <Menu store={store} />
-        <Navigator />
+        <Navigator store={store} />
       </div>
     );
   }

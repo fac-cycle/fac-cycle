@@ -21,9 +21,13 @@ class SearchForm extends React.Component {
       category: event.target.value,
     });
   }
-  // handleClick() {
-  //   console.log('mwahahaha', this.state.keyword, this.state.category);
-  // }
+  handleClick() {
+    this.props.store.dispatch({
+      type: 'GET_ITEMS',
+      keyword: event.target.value,
+      async: true,
+    });
+  }
 
   render() {
     const dropdown =
@@ -45,7 +49,7 @@ class SearchForm extends React.Component {
         </select>
         <input
           type="text"
-          value={this.state.keyword}
+          value={this.props.store.state.keyword}
           onChange={this.handleInput.bind(this)}
         />
         <button onClick={this.handleClick.bind(this)} className="searchButton">GO!</button>
