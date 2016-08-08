@@ -3,11 +3,12 @@ import React from 'react';
 
 class Image extends React.Component {
   render() {
+    const index = this.props.id;
     return (
       <div>
         <img
           className="image"
-          src={this.props.store.state.imageUrls[0]}
+          src={this.props.store.state.itemsArray[index].imageUrls[0]}
           alt="item not found"
         />
       &nbsp;
@@ -18,6 +19,7 @@ class Image extends React.Component {
 
 Image.propTypes = {
   store: React.PropTypes.object,
+  id: React.PropTypes.number,
 };
 
 export default Image;
