@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'ava';
-import pg from 'pg';
+import pool from '../../server/lib/pg_client.js';
 import { exec } from 'child_process';
 import path from 'path';
 import { addUserDatabase } from '../../server/lib/add_user_database.js';
@@ -9,7 +9,6 @@ import { updateUserDatabase } from '../../server/lib/update_user_database.js';
 
 const dumpDbFile = path.join(__dirname, '..', 'fixtures', 'dumpdb.sql');
 const dropDbFile = path.join(__dirname, '..', 'fixtures', 'dropdb.sql');
-const connectionString = 'postgresql://localhost/testdb';
 
 const createDB = (next) => {
   exec('createdb testdb', (createDbErr) => {
@@ -51,16 +50,12 @@ test.cb.beforeEach(t => {
 });
 
 test.afterEach.cb(t => {
-  pg.connect(connectionString, (err, client) => {
-    client.end();
-    t.end();
-  });
+  t.end();
 });
 
 test.after.cb.always('drop test database', t => {
   cleanDB(t.end);
 });
-
 
 test.cb('adds user to database', t => {
   const fakeUser = {
@@ -70,8 +65,8 @@ test.cb('adds user to database', t => {
     profileImgUrl: 'rory.jpg',
     postcode: 'E2 0SY',
   };
-  addUserDatabase(connectionString, fakeUser, (err, reply) => {
-    t.pass(reply.command, 'INSERT', 'Should return an insert command');
+  addUserDatabase(pool, fakeUser, (err, reply) => {
+    t.is(reply.command, 'INSERT', 'Should return an insert command');
     t.end();
   });
 });
@@ -94,10 +89,10 @@ test.cb('select user to database', t => {
     lat: '51.5295460939963',
     lng: '-0.0423161603498166',
   };
-  addUserDatabase(connectionString, fakeUser, (addUserErr, addUserReply) => {
+  addUserDatabase(pool, fakeUser, (addUserErr, addUserReply) => {
     fakeResult.id = addUserReply.rows[0].id;
-    getUserDatabase(connectionString, addUserReply.rows[0].id, (getUserErr, getUserReply) => {
-      t.pass(getUserReply.command, 'SELECT', 'Should return an select command');
+    getUserDatabase(pool, addUserReply.rows[0].id, (getUserErr, getUserReply) => {
+      t.is(getUserReply.command, 'SELECT', 'Should return an select command');
       t.deepEqual(getUserReply.rows[0], fakeResult, 'Should return the fake user');
       t.end();
     });
@@ -126,12 +121,12 @@ test.cb('update user to database', t => {
     lat: '51.5295460939963',
     lng: '-0.0423161603498166',
   };
-  addUserDatabase(connectionString, fakeUser, (addUserErr, addUserReply) => {
+  addUserDatabase(pool, fakeUser, (addUserErr, addUserReply) => {
     fakeResult.id = addUserReply.rows[0].id;
-    updateUserDatabase(connectionString, addUserReply.rows[0].id, fakeUpdate,
+    updateUserDatabase(pool, addUserReply.rows[0].id, fakeUpdate,
       (updateUserErr, updateUserReply) => {
-        t.pass(updateUserReply.command, 'UPDATE', 'Should return an update command');
-        getUserDatabase(connectionString, addUserReply.rows[0].id, (getUserErr, getUserReply) => {
+        t.is(updateUserReply.command, 'UPDATE', 'Should return an update command');
+        getUserDatabase(pool, addUserReply.rows[0].id, (getUserErr, getUserReply) => {
           t.deepEqual(getUserReply.rows[0], fakeResult, 'Should return the fake user');
           t.end();
         });

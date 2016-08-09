@@ -8,6 +8,4 @@ const getGeoLocation = (postcode, callback) => {
    });
 };
 
-module.exports = {
-  getGeoLocation,
-};
+module.exports = getGeoLocation;

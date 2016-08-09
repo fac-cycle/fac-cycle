@@ -1,11 +1,7 @@
-// import { getUserDatabase } from './get_user_database.js';
-
-const pgClient = require('./pg_client');
 const getUserDatabase = require('./get_user_database').getUserDatabase;
 
-const updateUserDatabase = (connection, userId, updates, callback) => {
-  const client = pgClient(connection);
-  getUserDatabase(connection, userId, (getUserErr, getUserReply) => {
+const updateUserDatabase = (client, userId, updates, callback) => {
+  getUserDatabase(client, userId, (getUserErr, getUserReply) => {
     if (getUserErr) {
       callback(getUserErr);
     } else {
@@ -19,15 +15,14 @@ const updateUserDatabase = (connection, userId, updates, callback) => {
            postcode = $6, lat = $7, lng = $8
            WHERE id = $1`,
           [id, name, email, facebookId, profileImgUrl, postcode, lat, lng],
-        (postgresErr, result) => {
-          console.log(postgresErr);
-          if (postgresErr) {
-            callback(postgresErr);
-          } else {
-            callback(postgresErr, result);
-          }
-          client.end();
-        });
+          (postgresErr, result) => {
+            console.log(postgresErr);
+            if (postgresErr) {
+              callback(postgresErr);
+            } else {
+              callback(postgresErr, result);
+            }
+          });
     }
   });
 };

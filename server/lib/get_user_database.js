@@ -1,8 +1,4 @@
-const pgClient = require('./pg_client');
-
-
-const getUserDatabase = (connection, userId, callback) => {
-  const client = pgClient(connection);
+const getUserDatabase = (client, userId, callback) => {
   client.query(
       `SELECT * FROM users
        WHERE id = $1`,
@@ -13,7 +9,6 @@ const getUserDatabase = (connection, userId, callback) => {
       } else {
         callback(postgresErr, result);
       }
-      client.end();
     }
     );
 };
