@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test-src": "ava --verbose --require babel-register test_src/**/*",
-    "test-server": "ava --verbose test_server/**/*",
+    "test-server": "ava --verbose './test_server/**/*.test.js'",
     "test-serial": "npm run test-src -- --serial && npm run test-server -- --serial",
     "fail": "ebanner 'fix that shit!!' && npm run fail",
     "test": "npm run test-src && npm run test-server",
@@ -69,6 +69,7 @@
     }
   },
   "dependencies": {
+    "boom": "^3.2.2",
     "colors": "^1.1.2",
     "env2": "^2.1.0",
     "hapi": "^14.1.0",
