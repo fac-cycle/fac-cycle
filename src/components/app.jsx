@@ -2,7 +2,6 @@
 import React from 'react';
 
 import Menu from './menu';
-import actions from '../actions';
 import Navigator from './navigator.jsx';
 
 class App extends React.Component {
@@ -46,7 +45,7 @@ class App extends React.Component {
     };
   }
   render() {
-    // const store = { state: this.state, dispatch: this.dispatch };
+    const store = { state: this.state, dispatch: this.dispatch };
     return (
       <div>
         <h1>Hello world</h1>
