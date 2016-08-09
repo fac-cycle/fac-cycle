@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'ava';
-import pool from '../../server/lib/pg_client.js';
 import { exec } from 'child_process';
 import path from 'path';
+import pool from '../../server/lib/pg_client.js';
 import { addUserDatabase } from '../../server/lib/add_user_database.js';
 import { getUserDatabase } from '../../server/lib/get_user_database.js';
 import { updateUserDatabase } from '../../server/lib/update_user_database.js';
