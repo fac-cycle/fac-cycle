@@ -34,13 +34,11 @@ class App extends React.Component {
           require(`../actions/${action.type.toLowerCase()}`)(this.state, actionAsync);
         } catch (err) {
           console.log(err);
-          this.end(this.state);
         }
       }
     };
     this.state = {
       isFetching: false,
-      isDispatching: false,
     };
   }
   render() {
