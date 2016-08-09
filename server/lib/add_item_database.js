@@ -6,8 +6,8 @@ function addItemDatabase(connection, item, callback) {
   const description = item.description;
   const postcode = item.postcode;
   const category = item.category;
-  const image_url = item.image_url;
-  const user_id = item.user_id;
+  const imageUrl = item.image_url;
+  const userId = item.user_id;
   const client = pgClient(connection);
   getGeoLocation(postcode, (err, reply) => {
     const lat = reply.latitude;
@@ -17,7 +17,7 @@ function addItemDatabase(connection, item, callback) {
       (title, description, postcode, category, image_url, user_Id, lat, lng)
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
       RETURNING id;
-      `, [title, description, postcode, category, image_url, user_id, lat, lng],
+      `, [title, description, postcode, category, imageUrl, userId, lat, lng],
       (postgresErr, result) => {
         if (postgresErr) {
           callback(postgresErr);

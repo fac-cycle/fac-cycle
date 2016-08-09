@@ -1,7 +1,8 @@
 const pgClient = require('./pg_client');
 
 
-const getItemDatabase = (connection, keywordInput, categoryInput, userIdInput, itemIdInput, callback) => {
+const getItemDatabase = (connection, keywordInput,
+  categoryInput, userIdInput, itemIdInput, callback) => {
   const client = pgClient(connection);
   const obj = {
     category: categoryInput,

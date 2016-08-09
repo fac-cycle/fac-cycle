@@ -187,8 +187,9 @@ test.serial.cb('gets item from database', t => {
     lng: '-0.0423161603498166', // not used by addItem() or updateItem()
   };
   addUserDatabase(connectionString, fakeUser, () => {
-    addItemDatabase(connectionString, fakeItem, (err, reply) => {
-      getItemDatabase(connectionString, 'sofa', 'furniture', 1, 1, (getItemDatabaseErr, getItemDatabaseReply) => {
+    addItemDatabase(connectionString, fakeItem, () => {
+      getItemDatabase(connectionString, 'sofa', 'furniture', 1, 1,
+      (getItemDatabaseErr, getItemDatabaseReply) => {
         const actual = getItemDatabaseReply.rows[0];
         delete actual.id;
         t.deepEqual(actual, fakeItem, 'Should return the fake item');
