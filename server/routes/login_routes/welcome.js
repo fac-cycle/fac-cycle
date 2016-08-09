@@ -1,5 +1,6 @@
 const querystring = require('querystring');
 const superagent = require('superagent');
+const { REDIRECT_ROOT } = require('../../lib/constants');
 
 const jwt = require('jsonwebtoken');
 
@@ -56,7 +57,7 @@ const welcome = {
 
         const jsonWebToken = jwt.sign(jwtpayload, process.env.JWT_SECRET);
 
-        reply.redirect(`/?jwt=${jsonWebToken}`);
+        reply.redirect(`${REDIRECT_ROOT}?jwt=${jsonWebToken}`);
       });
     });
   },
