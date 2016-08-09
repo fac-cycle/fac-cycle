@@ -1,12 +1,14 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'ava';
-import pg from 'pg';
 import { exec } from 'child_process';
 import path from 'path';
+import pool from '../../server/lib/pg_client.js';
+import { addUserDatabase } from '../../server/lib/add_user_database.js';
+import { getUserDatabase } from '../../server/lib/get_user_database.js';
+import { updateUserDatabase } from '../../server/lib/update_user_database.js';
 
 const dumpDbFile = path.join(__dirname, '..', 'fixtures', 'dumpdb.sql');
 const dropDbFile = path.join(__dirname, '..', 'fixtures', 'dropdb.sql');
-const connectionString = 'postgresql://localhost/testdb';
 
 const createDB = (next) => {
   exec('createdb testdb', (createDbErr) => {
@@ -48,30 +50,86 @@ test.cb.beforeEach(t => {
 });
 
 test.afterEach.cb(t => {
-  pg.connect(connectionString, (err, client) => {
-    client.end();
-    t.end();
-  });
+  t.end();
 });
 
 test.after.cb.always('drop test database', t => {
   cleanDB(t.end);
 });
 
-
-test.cb('check db', t => {
-  /*
-  t.plan(2);
-
-  client.query('select * from users', () => {
-    //TODO make test
+test.cb('adds user to database', t => {
+  const fakeUser = {
+    name: 'Rory',
+    email: 'rory@rory.com',
+    facebookId: '12345677',
+    profileImgUrl: 'rory.jpg',
+    postcode: 'E2 0SY',
+  };
+  addUserDatabase(pool, fakeUser, (err, reply) => {
+    t.is(reply.command, 'INSERT', 'Should return an insert command');
+    t.end();
   });
+});
 
-  client.query('select * from items', () => {
-    //TODO make test
+test.cb('select user to database', t => {
+  const fakeUser = {
+    name: 'Anneka',
+    email: 'anneka@anneka.com',
+    facebookId: '12345678',
+    profileImgUrl: 'anneka.jpg',
+    postcode: 'E2 0SY',
+  };
+  const fakeResult = {
+    id: null,
+    name: 'Anneka',
+    email: 'anneka@anneka.com',
+    facebook_id: '12345678',
+    profile_img_url: 'anneka.jpg',
+    postcode: 'E2 0SY',
+    lat: '51.5295460939963',
+    lng: '-0.0423161603498166',
+  };
+  addUserDatabase(pool, fakeUser, (addUserErr, addUserReply) => {
+    fakeResult.id = addUserReply.rows[0].id;
+    getUserDatabase(pool, addUserReply.rows[0].id, (getUserErr, getUserReply) => {
+      t.is(getUserReply.command, 'SELECT', 'Should return an select command');
+      t.deepEqual(getUserReply.rows[0], fakeResult, 'Should return the fake user');
+      t.end();
+    });
   });
-  */
+});
 
-  t.pass();
-  t.end();
+test.cb('update user to database', t => {
+  const fakeUser = {
+    name: 'Steve',
+    email: 'steve@steve.com',
+    facebookId: '12245678',
+    profileImgUrl: 'steve.jpg',
+    postcode: 'E2 0SY',
+  };
+  const fakeUpdate = {
+    name: 'John',
+    email: 'john@john.com',
+  };
+  const fakeResult = {
+    id: null,
+    name: 'John',
+    email: 'john@john.com',
+    facebook_id: '12245678',
+    profile_img_url: 'steve.jpg',
+    postcode: 'E2 0SY',
+    lat: '51.5295460939963',
+    lng: '-0.0423161603498166',
+  };
+  addUserDatabase(pool, fakeUser, (addUserErr, addUserReply) => {
+    fakeResult.id = addUserReply.rows[0].id;
+    updateUserDatabase(pool, addUserReply.rows[0].id, fakeUpdate,
+      (updateUserErr, updateUserReply) => {
+        t.is(updateUserReply.command, 'UPDATE', 'Should return an update command');
+        getUserDatabase(pool, addUserReply.rows[0].id, (getUserErr, getUserReply) => {
+          t.deepEqual(getUserReply.rows[0], fakeResult, 'Should return the fake user');
+          t.end();
+        });
+      });
+  });
 });
