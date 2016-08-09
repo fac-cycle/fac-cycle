@@ -78,6 +78,7 @@
     "pg": "^6.0.3",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
+    "react-dropzone": "^3.5.3",
     "superagent": "^2.1.0"
   }
 }
