@@ -16,7 +16,6 @@ const updateUserDatabase = (client, userId, updates, callback) => {
            WHERE id = $1`,
           [id, name, email, facebookId, profileImgUrl, postcode, lat, lng],
           (postgresErr, result) => {
-            console.log(postgresErr);
             if (postgresErr) {
               callback(postgresErr);
             } else {

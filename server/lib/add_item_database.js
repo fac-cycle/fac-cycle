@@ -1,14 +1,10 @@
-const pgClient = require('./pg_client');
-const { getGeoLocation } = require('./geolocation');
+const getGeoLocation = require('./geolocation');
 
-function addItemDatabase(connection, item, callback) {
-  const title = item.title;
-  const description = item.description;
-  const postcode = item.postcode;
-  const category = item.category;
+function addItemDatabase(client, item, callback) {
+  const { title, description, postcode, category } = item;
   const imageUrl = item.image_url;
   const userId = item.user_id;
-  const client = pgClient(connection);
+
   getGeoLocation(postcode, (err, reply) => {
     const lat = reply.latitude;
     const lng = reply.longitude;
@@ -24,7 +20,6 @@ function addItemDatabase(connection, item, callback) {
         } else {
           callback(postgresErr, result);
         }
-        client.end();
       }
     );
   });

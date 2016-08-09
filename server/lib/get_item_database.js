@@ -1,20 +1,16 @@
-const pgClient = require('./pg_client');
-
-
-const getItemDatabase = (connection, keywordInput,
+const getItemDatabase = (client, keywordInput,
   categoryInput, userIdInput, itemIdInput, callback) => {
-  const client = pgClient(connection);
   const obj = {
     category: categoryInput,
     user_id: userIdInput,
     id: itemIdInput,
   };
-  // if (obj.title !== null) {
-  //   obj.title = `%${keywordInput}%`;
-  // }
+
   const array = [];
   let partquerystring = '';
   let count = 1;
+  // TODO: Refactor this - code should be more explicit
+  // TODO: Consider issues with sql injection vulnerability
   Object.keys(obj).forEach((key) => {
     if (obj[key] !== null) {
       partquerystring += `${key} = $${count} AND `;

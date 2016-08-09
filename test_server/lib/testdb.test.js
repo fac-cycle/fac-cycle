@@ -5,18 +5,21 @@ import fs from 'fs';
 import { getUserDatabase } from '../../server/lib/get_user_database.js';
 import { updateUserDatabase } from '../../server/lib/update_user_database.js';
 import { addUserDatabase } from '../../server/lib/add_user_database.js';
+import { addItemDatabase } from '../../server/lib/add_item_database.js';
+import { getItemDatabase } from '../../server/lib/get_item_database.js';
+
 import client from '../../server/lib/pg_client.js';
 
 const sql = fs.readFileSync(`${__dirname}/../fixtures/schema.txt`).toString();
 
-test.cb.before(t => {
+test.cb.beforeEach(t => {
   client.query(sql, (err) => {
     if (err) throw err;
     t.end();
   });
 });
 
-test.cb('adds user to database', t => {
+test.serial.cb('adds user to database', t => {
   const fakeUser = {
     name: 'Rory',
     email: 'rory@rory.com',
@@ -30,7 +33,7 @@ test.cb('adds user to database', t => {
   });
 });
 
-test.cb('select user to database', t => {
+test.serial.cb('select user from database', t => {
   const fakeUser = {
     name: 'Anneka',
     email: 'anneka@anneka.com',
@@ -58,7 +61,7 @@ test.cb('select user to database', t => {
   });
 });
 
-test.cb('update user to database', t => {
+test.serial.cb('update user in database', t => {
   const fakeUser = {
     name: 'Steve',
     email: 'steve@steve.com',
@@ -90,5 +93,62 @@ test.cb('update user to database', t => {
           t.end();
         });
       });
+  });
+});
+
+test.serial.cb('adds item to database', t => {
+  const fakeUser = {
+    name: 'Steve',
+    email: 'steve@steve.com',
+    facebookId: '12225678',
+    profileImgUrl: 'steve.jpg',
+    postcode: 'E2 0SY',
+  };
+  const fakeItem = {
+    title: 'My crappy sofa bed',
+    description: 'This is the worst sofa that the world has ever seen. It\'s seriously gross',
+    postcode: 'E2 0SY',
+    category: 'furniture',
+    image_url: 'https://image-hosting-website/blah1234.jpg',
+    user_id: 1, // Taken from JSON Web Token/Cookie
+    lat: '51.5295460939963', // not used by addItem() or updateItem()
+    lng: '-0.0423161603498166', // not used by addItem() or updateItem()
+  };
+  addUserDatabase(client, fakeUser, () => {
+    addItemDatabase(client, fakeItem, (err, reply) => {
+      t.is(reply.command, 'INSERT', 'Should return an insert command');
+      t.end();
+    });
+  });
+});
+
+test.serial.cb('gets item from database', t => {
+  const fakeUser = {
+    name: 'Steve',
+    email: 'steve@steve.com',
+    facebookId: '12222678',
+    profileImgUrl: 'steve.jpg',
+    postcode: 'E2 0SY',
+  };
+  const fakeItem = {
+    title: 'My crappy sofa bed',
+    description: 'This is the worst sofa that the world has ever seen. It\'s seriously gross',
+    postcode: 'E2 0SY',
+    category: 'furniture',
+    image_url: 'https://image-hosting-website/blah1234.jpg',
+    user_id: 1, // Taken from JSON Web Token/Cookie
+    lat: '51.5295460939963', // not used by addItem() or updateItem()
+    lng: '-0.0423161603498166', // not used by addItem() or updateItem()
+  };
+  addUserDatabase(client, fakeUser, () => {
+    addItemDatabase(client, fakeItem, () => {
+      getItemDatabase(client, 'sofa', 'furniture', 1, 1,
+      (getItemDatabaseErr, getItemDatabaseReply) => {
+        const actual = getItemDatabaseReply.rows[0];
+        delete actual.id;
+        t.deepEqual(actual, fakeItem, 'Should return the fake item');
+        t.end();
+      });
+    });
   });
 });
