@@ -144,6 +144,7 @@ test.serial.cb('gets item from database', t => {
     addItemDatabase(client, fakeItem, () => {
       getItemDatabase(client, 'sofa', 'furniture', 1, 1,
       (getItemDatabaseErr, getItemDatabaseReply) => {
+        if (getItemDatabaseErr) throw getItemDatabaseErr;
         const actual = getItemDatabaseReply.rows[0];
         delete actual.id;
         t.deepEqual(actual, fakeItem, 'Should return the fake item');
