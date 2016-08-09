@@ -23,6 +23,13 @@ module.exports = {
     loaders: [
       { test: /\.js(x)*$/, exclude: /node_modules/, loader: 'babel' },
       { test: /\.scss$/, loader: 'style!css!sass' },
+      {
+          test: /\.(jpg|png|gif|svg)$/i,
+          loaders: [
+              'file?hash=sha512&digest=hex&name=[hash].[ext]',
+              'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+          ]
+      },
     ],
   },
   plugins: [

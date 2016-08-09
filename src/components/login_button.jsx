@@ -5,7 +5,7 @@ class LoginButton extends React.Component {
   render() {
     return (
       <form method="get" action="/login">
-        <button type="submit">Login</button>
+        <button type="submit" className="loginButton">Login</button>
       </form>
     );
   }
