@@ -1,19 +1,30 @@
 const Pool = require('pg').Pool;
 const url = require('url');
+const env = require('env2');
 
-const URL = process.env.DB_URL || 'postgresql://:@localhost:5432/testdb';
+env('../../config.env');
 
-const params = url.parse(URL);
-const auth = params.auth.split(':');
-const config = {
-  user: auth[0],
-  password: auth[1],
-  host: params.hostname,
-  port: params.port,
-  database: params.pathname.split('/')[1],
-  ssl: true,
+const buildConfig = () => {
+  const URL = process.env.DB_URL;
+
+  if (!URL) throw new Error('Environment variable DB_URL must be set');
+
+  const params = url.parse(URL);
+  const [username, password] = params.auth.split(':');
+
+  const config = {
+    host: params.hostname,
+    port: params.port,
+    database: params.pathname.split('/')[1],
+  };
+
+  if (username) config.user = username;
+  if (password) config.password = password;
+  config.ssl = (config.host !== 'localhost');
+
+  return config;
 };
 
-const pool = new Pool(config);
+const pool = new Pool(buildConfig());
 
 module.exports = pool;
