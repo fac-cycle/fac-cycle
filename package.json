@@ -14,9 +14,9 @@
     "test": "npm run test-src && npm run test-server",
     "test-coverage": "nyc ava --require babel-register test_src/**/* report --reporter=text-lcov",
     "lint": "eslint './+(src|test_src|server|test_server)/**/*.+(js|jsx)'",
-    "webpack-dev": "webpack-dev-server",
-    "webpack-build": "webpack",
-    "start-server": "nodemon server"
+    "webpack-dev": "DEVELOPMENT=true webpack-dev-server",
+    "webpack-build": "DEVELOPMENT=false webpack",
+    "start-server": "REDIRECT_ROOT='http://localhost:4000' nodemon server"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,7 @@
-DROP TABLE IF EXISTS users cascade;
-DROP TABLE IF EXISTS items cascade;
+BEGIN;
+
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS items CASCADE;
 
 CREATE TABLE users (
   id              SERIAL          PRIMARY KEY     NOT NULL,
@@ -23,3 +25,5 @@ CREATE TABLE items (
   image_url       VARCHAR(200)    NOT NULL,
   user_id         INT NOT NULL unique references users(id)
 );
+
+COMMIT;
