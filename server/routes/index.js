@@ -8,4 +8,12 @@ module.exports = [
   ...userRoutes,
   ...itemRoutes,
   ...loginRoutes,
+  {
+    method: 'GET',
+    path: '/test-protected',
+    config: { auth: 'jwt' },
+    handler(req, reply) {
+      reply('it works');
+    },
+  },
 ];
