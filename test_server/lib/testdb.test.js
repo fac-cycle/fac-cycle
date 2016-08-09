@@ -16,7 +16,7 @@ test.cb.before(t => {
   });
 });
 
-test.serial.cb('adds user to database', t => {
+test.cb('adds user to database', t => {
   const fakeUser = {
     name: 'Rory',
     email: 'rory@rory.com',
