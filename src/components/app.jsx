@@ -11,7 +11,6 @@ class App extends React.Component {
           state,
           {
             isFetching: false,
-            isDispatching: false,
           }
         )
       );
@@ -24,15 +23,16 @@ class App extends React.Component {
           end: this.end,
         }
       );
-      if (!this.state.isFetching && !this.state.isDispatching) {
+      if (!this.state.isFetching) {
         if (action.asyc) {
           this.setState({
             isFetching: true,
           });
         }
         try {
+          // eslint-disable-next-line global-require
           require(`../actions/${action.type.toLowerCase()}`)(this.state, actionAsync);
-        } catch(err) {
+        } catch (err) {
           console.log(err);
           this.end(this.state);
         }
@@ -44,7 +44,7 @@ class App extends React.Component {
     };
   }
   render() {
-    const store = { state: this.state, dispatch: this.dispatch };
+    // const store = { state: this.state, dispatch: this.dispatch };
     return (
       <div>
         <h1>Hello world</h1>
