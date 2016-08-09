@@ -1,6 +1,9 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 
+import Menu from './menu';
+import Navigator from './navigator.jsx';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -42,10 +45,12 @@ class App extends React.Component {
     };
   }
   render() {
-    // const store = { state: this.state, dispatch: this.dispatch };
+    const store = { state: this.state, dispatch: this.dispatch };
     return (
       <div>
         <h1>Hello world</h1>
+        <Menu store={store} />
+        <Navigator store={store} />
       </div>
     );
   }
