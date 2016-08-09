@@ -9,14 +9,14 @@ class Navigator extends React.Component {
   render() {
     return (
       <div className="navigatorContainer">
-        <div className="navigatorHeader">
-          <Logo />
-          <LogoMenu />
-          <Menu />
-        </div>
-        <div className="navigatorBody">
-          <SearchForm />
-        </div>
+      <div className="navigatorHeader">
+      <Logo />
+      <LogoMenu />
+      <Menu />
+      </div>
+      <div className="navigatorBody">
+      <SearchForm />
+      </div>
       </div>
     );
   }
