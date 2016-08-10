@@ -1,0 +1,55 @@
+//Navbar
+
+.navigatorHeader {
+display: flex;
+align-items: center;
+justify-content: space-between;
+background-color: #2F3241;
+width: 100%;
+height: 12vh;
+padding: 0.4em;
+}
+
+// Navbar menu
+
+.logoMenu {
+  padding: 2vw;
+  height: 5.5vh;
+  cursor: pointer;
+  padding-right: 1.3vw;
+}
+
+.menu {
+display: none;
+}
+
+// Logo
+
+.logo {
+  display: flex;
+  align-items: center;
+  .logo_img {
+    padding-left: 1.3vw;
+    height: 11.5vh;
+  }
+  .logo_logotype {
+    height: 2.5vh;
+    padding-left: 1vw;
+  }
+}
+
+.navigatorContainer {
+
+}
+
+
+
+.navigatorBody {
+  background-color: #EFEFEF;
+  height: 289px;
+  width: 100vw;
+}
+
+.searchInputForm {
+  
+}

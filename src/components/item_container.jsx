@@ -6,9 +6,9 @@ import ItemTitle from './item_title.jsx';
 class ItemContainer extends React.Component {
   render() {
     return (
-      <div>
-        <Image {...this.props} id={this.props.id} />
-        <ItemTitle {...this.props} id={this.props.id} />
+      <div className="itemContainer">
+        <Image />
+        <ItemTitle />
       </div>
     );
   }

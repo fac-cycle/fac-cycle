@@ -7,9 +7,9 @@
  class Homepage extends React.Component {
    render() {
      return (
-       <div className="lshomepageContainer">
+       <div className="homepageContainer">
          <Navigator {...this.props} />
-         <ItemContainerWrapper {...this.props} />
+         <ItemContainerWrapper />
        </div>
      );
    }
