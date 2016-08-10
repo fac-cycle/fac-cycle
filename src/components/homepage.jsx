@@ -5,13 +5,23 @@
  import Navigator from './navigator.jsx';
 
  class Homepage extends React.Component {
+   loadAllItems() {
+     window.addEventListener('load', this.handleOnLoad.bind(this));
+   }
+   handleOnLoad() {
+     this.props.store.dispatch({
+       type: 'GET_ITEMS',
+       keyword: event.target.value,
+       async: true,
+     });
+   }
    render() {
      console.log(localStorage)
      //validate whats inside local storage
      // use browserHistory.push('some/path') to redirect if not valid
    
      return (
-       <div className="lshomepageContainer">
+       <div className="homepageContainer">
          <Navigator {...this.props} />
          <ItemContainerWrapper {...this.props} />
           <Link to='/item'>Item</Link> 
@@ -19,5 +29,9 @@
      );
    }
  }
+
+ Homepage.propTypes = {
+   store: React.PropTypes.object,
+ };
 
  export default Homepage;
