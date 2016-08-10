@@ -5,14 +5,28 @@
  import Navigator from './navigator.jsx';
 
  class Homepage extends React.Component {
+   loadAllItems() {
+     window.addEventListener('load', this.handleOnLoad.bind(this));
+   }
+   handleOnLoad() {
+     this.props.store.dispatch({
+       type: 'GET_ITEMS',
+       keyword: event.target.value,
+       async: true,
+     });
+   }
    render() {
      return (
-       <div className="lshomepageContainer">
+       <div className="homepageContainer">
          <Navigator {...this.props} />
          <ItemContainerWrapper {...this.props} />
        </div>
      );
    }
  }
+
+ Homepage.propTypes = {
+   store: React.PropTypes.object,
+ };
 
  export default Homepage;
