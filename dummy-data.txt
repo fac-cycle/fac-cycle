@@ -1,0 +1,72 @@
+BEGIN;
+
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS items CASCADE;
+
+CREATE TABLE users (
+  id              SERIAL          PRIMARY KEY     NOT NULL,
+  name            VARCHAR(30)     NOT NULL,
+  email           VARCHAR(100)    NOT NULL,
+  facebook_id     VARCHAR(100)    NOT NULL unique,
+  profile_img_url VARCHAR(500)    NOT NULL,
+  postcode        VARCHAR(8)      NOT NULL,
+  lat             VARCHAR(20)     NOT NULL,
+  lng             VARCHAR(20)     NOT NULL
+);
+
+CREATE TABLE items (
+  id              SERIAL PRIMARY KEY NOT NULL,
+  title           VARCHAR(140)    NOT NULL,
+  description     VARCHAR(1000)   NOT NULL,
+  postcode        VARCHAR(8)      NOT NULL,
+  lat             VARCHAR(20)     NOT NULL,
+  lng             VARCHAR(20)     NOT NULL,
+  category        VARCHAR(20)     NOT NULL,
+  image_url       VARCHAR(200)    NOT NULL,
+  user_id         INT NOT NULL unique references users(id)
+);
+
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Jackson', 'Jackson@Jackson.com', '12225678', 'Jackson.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Aiden', 'Aiden@Aiden.com', '12225679', 'Aiden.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Liam', 'Liam@Liam.com', '12225680', 'Liam.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Lucas', 'Lucas@Lucas.com', '12225681', 'Lucas.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Noah', 'Noah@Noah.com', '12225682', 'Noah.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Mason', 'Mason@Mason.com', '12225683', 'Mason.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Ethan', 'Ethan@Ethan.com', '12225684', 'Ethan.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Caden', 'Caden@Caden.com', '12225685', 'Caden.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Jacob', 'Jacob@Jacob.com', '12225686', 'Jacob.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Logan', 'Logan@Logan.com', '12225687', 'Logan.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Jayden', 'Jayden@Jayden.com', '12225688', 'Jayden.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Elijah', 'Elijah@Elijah.com', '12225689', 'Elijah.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Jack', 'Jack@Jack.com', '12225690', 'Jack.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Luke', 'Luke@Luke.com', '12225691', 'Luke.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Michael', 'Michael@Michael.com', '12225692', 'Michael.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Benjamin', 'Benjamin@Benjamin.com', '12225693', 'Benjamin.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Alexander', 'Alexander@Alexander.com', '12225694', 'Alexander.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('James', 'James@James.com', '12225695', 'James.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Jayce', 'Jayce@Jayce.com', '12225696', 'Jayce.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO  users (name, email, facebook_id, profile_img_url, postcode, lat, lng) VALUES ('Caleb', 'Caleb@Caleb.com', '12225697', 'Caleb.jpg', 'E2 0SY', '51.5295460939963', '-0.0423161603498166');
+
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=0', '1', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=1', '2', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=2', '3', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=3', '4', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=4', '5', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=5', '6', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=6', '7', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=7', '8', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=8', '9', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=9', '10', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=10', '11', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=11', '12', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=12', '13', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=13', '14', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=14', '15', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=15', '16', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=16', '17', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=17', '18', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=18', '19', '51.5295460939963', '-0.0423161603498166');
+INSERT INTO items (title, description, postcode, category, image_url, user_id, lat, lng) VALUES ('A random title', 'A slightly longer random description blah blah blah. Please take my crappy sofa.', 'E2 0SY', 'other', 'https://unsplash.it/200/300?image=19', '20', '51.5295460939963', '-0.0423161603498166');
+
+
+COMMIT;
