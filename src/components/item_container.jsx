@@ -6,7 +6,7 @@ import ItemTitle from './item_title.jsx';
 class ItemContainer extends React.Component {
   render() {
     return (
-      <div className="itemContainer">
+      <div className={this.props.class}>
         <Image />
         <ItemTitle />
       </div>
@@ -17,6 +17,7 @@ class ItemContainer extends React.Component {
 ItemContainer.propTypes = {
   store: React.PropTypes.object,
   id: React.PropTypes.number,
+  class: React.PropTypes.string,
 };
 
 export default ItemContainer;

@@ -3,12 +3,11 @@ import React from 'react';
 
 class Image extends React.Component {
   render() {
-    const index = this.props.id;
     return (
       <div>
         <img
           className="image"
-          src={'http://tinyurl.com/jg4p8fs'}
+          src={'assets/crapsofa.png'}
           alt="item not found"
         />
       &nbsp;

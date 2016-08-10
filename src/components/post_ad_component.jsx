@@ -1,6 +1,5 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import Dropbox from './dropbox.jsx';
 
 class PostAd extends React.Component {
 
@@ -34,7 +33,6 @@ class PostAd extends React.Component {
             type="text"
             value={this.props.store.state.title}
           />
-          <Dropbox />
           <textarea
             {...this.props}
             id="description"

@@ -21,6 +21,7 @@ class SearchForm extends React.Component {
         >{dropdown}
         </select>
         <input
+          className="inputField"
           type="text"
         />
         <button className="searchButton">GO!</button>
