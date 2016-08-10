@@ -10,7 +10,7 @@ const getItems = (keyword, category, userId, itemId, callback) => {
 };
 
 module.exports = (state, action) => {
-  getItems(action.keyword, action.category, null, null, (err, response) => {
+  getItems(null, 'other', null, null, (err, response) => {
     action.end({
       itemsArray: response,
     });
