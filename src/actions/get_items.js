@@ -7,14 +7,16 @@ const getItems = (keyword, category, userId, itemId, callback) => {
    .query({ keyword, category, userId, itemId })
    .end((err, res) => {
      if (err) callback(err);
-     else callback(err, res.rows);
+     else callback(err, res.body);
    });
 };
 
-module.exports = (state, action) => {
-  getItems(null, 'other', null, null, (err, response) => {
-    action.end({
-      itemsArray: response,
-    });
-  });
-};
+module.exports = getItems;
+
+// module.exports = (state, action) => {
+//   getItems(null, 'other', null, null, (err, response) => {
+//     action.end({
+//       itemsArray: response,
+//     });
+//   });
+// };
