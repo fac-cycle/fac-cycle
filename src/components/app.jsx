@@ -2,8 +2,6 @@
 import React from 'react';
 import LoginWrapper from './login_wrapper.jsx';
 
-// import actions from '../actions';
-
 class App extends React.Component {
   constructor() {
     super();
