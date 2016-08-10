@@ -6,6 +6,20 @@
 
 # fac-cycle
 
+Fac-Cycle is FAC8's attempt to recreate and improve www.freecycle.com, a marketplace website which connects donors who have free items with people who wish to take them. 
+
+## Who?
+
+For anyone who just wants to get rid of their FAC'ing shit. Free shit fo sho, we ain't intergrating no payments m8.
+
+## How?
+
+React on tha front, hapi n postgres taking the derriere.
+
+## Why?
+
+Practise. We ain't gonna be olympians without practise. Look at Michael Phelps, he did 1856 days straight, bring it.
+
 ## Get started with this repo
 
 ### Install dependancies

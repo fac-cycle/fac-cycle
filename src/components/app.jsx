@@ -1,6 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import { Router, Route, Link, HashHistory } from 'react-router';
-import dummyItems from '../dummy_items.js';
+import dummyItems from './dummy_items.js';
 import React from 'react';
 import Homz from './homepage.jsx';
 import Item from './single_item_view.jsx';
@@ -43,11 +43,16 @@ class App extends React.Component {
     };
     this.state = {
       isFetching: false,
-      itemsArray: dummyItems,
+      itemsArray: [],
     };
+    this.dispatch({
+      async: true,
+      type: 'GET_ITEMS',
+    });
+
   }
   render() {
-    const store = { state: this.state, dispatch: this.dispatch };
+        const store = { state: this.state, dispatch: this.dispatch };
     if (this.props.route.path.includes('/item')) { //Find out what this is
       return (
         <Item store={store} id={Number(this.props.params.id)}/>

@@ -37,7 +37,6 @@ const getItemDatabase = (client, keywordInput,
       } else {
         callback(postgresErr, result);
       }
-      client.end();
     }
     );
 };
