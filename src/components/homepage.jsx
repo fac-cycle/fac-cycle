@@ -14,7 +14,6 @@
        <div className="lshomepageContainer">
          <Navigator {...this.props} />
          <ItemContainerWrapper {...this.props} />
-          <Link to='/item'>Item</Link> 
        </div>
      );
    }

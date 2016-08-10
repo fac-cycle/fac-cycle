@@ -1,14 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router';
 import ItemContainer from './item_container.jsx';
 import ToggleContainerViews from './toggle.jsx';
 
 class ItemContainerWrapper extends React.Component {
   render() {
-    const itemArray = this.props.itemsArray || [];
-    const jsxItemArray = itemArray.map(function (item, index) {
+    const itemArray = this.props.store.state.itemsArray || [];
+    console.log(itemArray)
+    const jsxItemArray = itemArray.map((item, index) => {
       return (
-        <div className="ItemContainer" key={index}>
-        <ItemContainer {...this.props} id={index} />
+        <div className="ItemContainer">
+        <Link to={`/item/${item.id}`}><ItemContainer {...this.props} item={item} /></Link>
         </div>
       );
     });

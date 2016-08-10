@@ -1,5 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import { Router, Route, Link, HashHistory } from 'react-router';
+import dummyItems from '../dummy_items.js';
 import React from 'react';
 import Homz from './homepage.jsx';
 import Item from './single_item_view.jsx';
@@ -42,21 +43,14 @@ class App extends React.Component {
     };
     this.state = {
       isFetching: false,
-      itemsArray: [
-        {
-          title: 'FUCK!',
-          imgUrls: ['https://lh3.googleusercontent.com/FvPffcAJF5nbZ4Dib77Vq1sBRy7LsfD0UHIQCm0pK4SfEzCla13LJE0axnkAPDLOlg=h900'],
-          imgClass: 'image',
-          descripton: 'Fuck this fucking shit!',
-        }
-      ]
+      itemsArray: dummyItems,
     };
   }
   render() {
     const store = { state: this.state, dispatch: this.dispatch };
-    if (this.props.params.item === 'item') {
+    if (this.props.route.path.includes('/item')) { //Find out what this is
       return (
-        <Item store={store}/>
+        <Item store={store} id={Number(this.props.params.id)}/>
       );
     } else {
       return (
