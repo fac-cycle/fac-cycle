@@ -1,8 +1,10 @@
 /* eslint-disable react/prefer-stateless-function */
-import { Router, Route, Link, HashHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import React from 'react';
 import Homz from './homepage.jsx';
+import Stranger from './login_wrapper.jsx';
 import Item from './single_item_view.jsx';
+import jwt from 'jwt-decode'
 
 class App extends React.Component {
   constructor() {
@@ -54,16 +56,37 @@ class App extends React.Component {
   }
   render() {
     const store = { state: this.state, dispatch: this.dispatch };
-    if (this.props.params.item === 'item') {
+
+    /*if(localStorage.token == null){*/
+      //browserHistory.push('/stranger') 
+    /*} */  
+    if (this.props.params.path === 'item') {
       return (
         <Item store={store}/>
       );
-    } else {
+    }else if (String(this.props.params.path).indexOf('jwt') >-1){
+      //estrai il token se valido salvalo nel localstorage
+      //se no reindirizza a stranger
+      console.log(this.props.params.path.split('=')) 
+      //localStorage.setItem('token', this.props.params.path.split('=')[1]) 
+
+      return(
+        <Stranger  store={store}/> 
+      ) 
+    }
+    else if (this.props.params.path === 'stranger'){
+      return(
+        <Stranger  store={store}/> 
+      ) 
+    }
+    else {
       return (
         <Homz store={store}/>
-      );
-    }
+      )
+    } 
   }
 }
+
+
 
 export default App;
