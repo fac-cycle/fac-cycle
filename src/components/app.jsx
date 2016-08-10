@@ -1,6 +1,8 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 
+import actions from '../actions';
+
 class App extends React.Component {
   constructor() {
     super();

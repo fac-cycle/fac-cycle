@@ -5,11 +5,11 @@ class Menu extends React.Component {
   render() {
     const menuList =
       ['Home', 'Near you', 'My Items', 'Make a listing', 'Logout']
-      .map(listValue => <li className="li_Menu">{listValue}</li>);
+      .map((listValue, i) => <a href="/" key={i}><li className="li_Menu">{listValue}</li></a>);
 
     return (
-      <div className="Menu">
-        <ul className="ul_Menu">
+      <div className="menu">
+        <ul className="ulMenu">
         {menuList}
         </ul>
       </div>
