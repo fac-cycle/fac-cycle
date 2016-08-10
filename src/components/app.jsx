@@ -56,30 +56,21 @@ class App extends React.Component {
   }
   render() {
     const store = { state: this.state, dispatch: this.dispatch };
-
-    /*if(localStorage.token == null){*/
-      //browserHistory.push('/stranger') 
-    /*} */  
-    if (this.props.params.path === 'item') {
+    console.log(this.props)
+    if (String(this.props.params.path).indexOf('jwt') >-1){
+      console.log('here')
+      localStorage.setItem('token', this.props.params.path.split('=')[1]) 
+    }else if(localStorage.token == null){
+      return(
+              <Stranger  store={store}/> 
+            ) 
+    }   
+    
+  else if (this.props.params.path === 'item') {
       return (
         <Item store={store}/>
       );
-    }else if (String(this.props.params.path).indexOf('jwt') >-1){
-      //estrai il token se valido salvalo nel localstorage
-      //se no reindirizza a stranger
-      console.log(this.props.params.path.split('=')) 
-      //localStorage.setItem('token', this.props.params.path.split('=')[1]) 
-
-      return(
-        <Stranger  store={store}/> 
-      ) 
-    }
-    else if (this.props.params.path === 'stranger'){
-      return(
-        <Stranger  store={store}/> 
-      ) 
-    }
-    else {
+    }  else {
       return (
         <Homz store={store}/>
       )
