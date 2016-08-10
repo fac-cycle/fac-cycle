@@ -15,7 +15,7 @@ class Navigator extends React.Component {
       <Menu />
       </div>
       <div className="navigatorBody">
-      <SearchForm />
+      <SearchForm {...this.props} />
       </div>
       </div>
     );

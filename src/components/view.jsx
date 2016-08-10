@@ -5,12 +5,12 @@ class HandleView extends React.Component {
     super();
     this.state = {};
   }
-
   render() {
-    const { view } = this.props;
-
-    let value;
-
+    let { view } = this.props
+    if(view == null){
+      view = 'NearYou'
+    }
+    var value;
     if (view === 'NearYou') {
       value = <h1>You are now in Near you</h1>;
     } else if (view === 'MyAds') {

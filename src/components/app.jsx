@@ -1,7 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
+import { Router, Route, HashHistory } from 'react-router';
 import React from 'react';
-
-import actions from '../actions';
+import Homz from './homepage.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -44,11 +44,12 @@ class App extends React.Component {
     };
   }
   render() {
-    // const store = { state: this.state, dispatch: this.dispatch };
+    const store = { state: this.state, dispatch: this.dispatch };
+
     return (
-      <div>
-        <h1>Hello world</h1>
-      </div>
+      <Router history={HashHistory}>
+        <Route path="/" component={Homz} store={store} />
+      </Router>
     );
   }
 }

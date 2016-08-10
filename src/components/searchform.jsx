@@ -10,19 +10,20 @@ class SearchForm extends React.Component {
     };
   }
   handleInput(event) {
-    this.props.store.dispatch({
+    console.log(this.props)
+    this.props.state.route.store.dispatch({
       type: 'UPDATE_INPUT',
       keyword: event.target.value,
     });
   }
   handleSelect(event) {
-    this.props.store.dispatch({
+    this.props.state.route.store.dispatch({
       type: 'UPDATE_CATEGORY',
       category: event.target.value,
     });
   }
   handleClick() {
-    this.props.store.dispatch({
+   this.props.state.route.store.dispatch({
       type: 'GET_ITEMS',
       keyword: event.target.value,
       async: true,
@@ -49,7 +50,7 @@ class SearchForm extends React.Component {
         </select>
         <input
           type="text"
-          value={this.props.store.state.keyword}
+          value={this.state.keyword}
           onChange={this.handleInput.bind(this)}
         />
         <button onClick={this.handleClick.bind(this)} className="searchButton">GO!</button>

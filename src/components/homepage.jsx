@@ -6,10 +6,14 @@
 
  class Homepage extends React.Component {
    render() {
+     //validate whats inside local storage
+     // use browserHistory.push('some/path') to redirect if not valid
+
+    console.log(localStorage)
      return (
        <div className="lshomepageContainer">
-         <Navigator {...this.props} />
-         <ItemContainerWrapper {...this.props} />
+         <Navigator state={this.props} />
+         <ItemContainerWrapper state={this.props} />
        </div>
      );
    }

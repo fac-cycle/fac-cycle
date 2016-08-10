@@ -28,4 +28,5 @@ module.exports = {
   plugins: [
     (new webpack.DefinePlugin({ 'process.env': stringifyValues(environmentVariables) })),
   ],
+  devtool: 'source-map',
 };

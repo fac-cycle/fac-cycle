@@ -1,5 +1,5 @@
 import React from 'react';
-import { SERVER_ROUTE } from '../lib/constants';
+import Link from 'react-router'
 
 const Login = () => (<a href={`${SERVER_ROUTE}/login`}>Login</a>);
 
