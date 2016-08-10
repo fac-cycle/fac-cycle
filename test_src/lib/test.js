@@ -9,4 +9,3 @@ test('environment works', t => {
 test('add function loads and precompiles', t => {
   t.is(add(2, 4), 6);
 });
-

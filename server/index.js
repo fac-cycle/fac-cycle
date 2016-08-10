@@ -22,7 +22,7 @@ server.register(plugins, registerError => {
   server.start(startError => {
     if (startError) throw startError;
     // eslint-disable-next-line no-console
-    console.log(`Sever running at ${server.info.uri}`.cyan);
+    console.log(`Server running at ${server.info.uri}`.cyan);
   });
 });
 
