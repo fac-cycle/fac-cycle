@@ -4,14 +4,17 @@ import React from 'react';
 class Logo extends React.Component {
   render() {
     return (
-      <div
-        className="logo"
-        style={{
-          // backgroundImage: 'url(images/Ren.jpg)',
-          height: '30vh',
-          width: '40vh' }}
-      >
+      <div>
+        <div
+          className="logo animated bounceInDown"
+        >
+        &nbsp;
+        </div>
+        <div
+          className="logoText animated bounceInDown"
+        >
       &nbsp;
+        </div>
       </div>
     );
   }

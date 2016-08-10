@@ -1,17 +1,51 @@
 .loginButton {
   height: 5em;
   width: 5em;
-  border: 2.5px solid black;
-  border-radius: 2em;
+  border: 1px solid #2F3345;
+  border-radius: 5px;
   opacity: 1;
   width: 50%;
-  position: relative;
+  height: 10%;
+  position: absolute;
+  top: 70%;
   left: 25%;
+  transition: 1s;
+  background-color: white;
+  font-size: 15px;
+  line-height: 100%;
+  font-family: 'lato';
+  color: #2F3345;
+}
 
+.logo {
+  background-image: url('http://i.imgur.com/Mj71rFd.png');
+  background-size: contain;
+  background-position: center;
+  height: 15vh;
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  top: 10%;
+}
+
+.logoText {
+  background-image: url('http://i.imgur.com/w8rcD7g.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 5vh;
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  top: 40%;
+}
+
+.loginButton:hover {
+  background-color: #e6e6e6;
+  transition: 1s;
 }
 
 .loginWrapper {
-  background-color: red;
   background-size: cover;
   background-position: center;
   width: 100vw;
@@ -29,6 +63,6 @@
   position: absolute;
   left: 30vw;
   top: 25vh;
-  opacity: 0.75;
+  background-color: rgba(256, 256, 256, 0.75);
   border-radius: 1em;
 }
