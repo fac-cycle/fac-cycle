@@ -1,6 +1,6 @@
 /* eslint-disable react/prefer-stateless-function, import/no-unresolved */
  import React from 'react';
-
+  import { Link } from 'react-router';
  import ItemContainerWrapper from './item_container_wrapper.jsx';
  import Navigator from './navigator.jsx';
 
@@ -9,11 +9,12 @@
      //validate whats inside local storage
      // use browserHistory.push('some/path') to redirect if not valid
 
-    console.log(localStorage)
+    console.log(localStorage);
      return (
        <div className="lshomepageContainer">
-         <Navigator state={this.props} />
-         <ItemContainerWrapper state={this.props} />
+         <Navigator {...this.props} />
+         <ItemContainerWrapper {...this.props} />
+          <Link to='/item'>Item</Link> 
        </div>
      );
    }

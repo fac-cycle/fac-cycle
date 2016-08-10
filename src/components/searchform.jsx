@@ -10,20 +10,25 @@ class SearchForm extends React.Component {
     };
   }
   handleInput(event) {
-    console.log(this.props)
-    this.props.state.route.store.dispatch({
+    console.log(this.state.keyword);
+    this.setState({keyword: `${event.target.value}`});
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log(this.props);
+    this.props.store.dispatch({
       type: 'UPDATE_INPUT',
-      keyword: event.target.value,
+      keyword: this.state.keyword,
     });
   }
   handleSelect(event) {
-    this.props.state.route.store.dispatch({
+    this.props.store.dispatch({
       type: 'UPDATE_CATEGORY',
       category: event.target.value,
     });
   }
   handleClick() {
-   this.props.state.route.store.dispatch({
+    this.props.store.dispatch({
       type: 'GET_ITEMS',
       keyword: event.target.value,
       async: true,
@@ -33,29 +38,31 @@ class SearchForm extends React.Component {
   render() {
     const dropdown =
       ['all', 'junk', 'utensils', 'rabbits', 'wigs', 'slaves']
-      .map((selectValue, i) =>
-        <option
-          key={i}
-          className="dropdownOption"
-          value={selectValue}
+        .map((selectValue, i) =>
+          <option
+        key={i}
+        className="dropdownOption"
+        value={selectValue}
         >{selectValue}
         </option>
-      );
-    return (
-      <div>
+        );
+      return (
+        <div>
         <select
-          className="dropdown"
-          onChange={this.handleSelect.bind(this)}
+        className="dropdown"
+        onChange={this.handleSelect.bind(this)}
         >{dropdown}
         </select>
+        <form onSubmit={this.handleSubmit.bind(this)}>
         <input
-          type="text"
-          value={this.state.keyword}
-          onChange={this.handleInput.bind(this)}
-        />
+        type="text"
+        value={this.state.keyword}
+        onChange={this.handleInput.bind(this)}
+          />
+        </form>
         <button onClick={this.handleClick.bind(this)} className="searchButton">GO!</button>
-      </div>
-    );
+        </div>
+      );
   }
 }
 

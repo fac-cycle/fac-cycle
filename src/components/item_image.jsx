@@ -7,8 +7,8 @@ class Image extends React.Component {
     return (
       <div>
         <img
-          className="image"
-          src={this.props.store.state.itemsArray[index].imageUrls[0]}
+          className={this.props.store.state.itemsArray[index].imgClass}
+          src={this.props.store.state.itemsArray[index].imgUrls[0]}
           alt="item not found"
         />
       &nbsp;

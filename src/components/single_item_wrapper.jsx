@@ -10,9 +10,10 @@ class SingleItemWrapper extends React.Component {
   render() {
     return (
       <div className="itemWrapper">
-        <ItemTitle {...this.props} title={this.props.title} />
-        <ItemImage {...this.props} imgClass={this.props.imgClass} imgUrl={this.props.imgUrl} />
-        <ItemDescription {...this.props} description={this.props.description} />
+        <ItemTitle {...this.props} id={0} />
+        <ItemImage {...this.props} id={0} />
+        <ItemDescription {...this.props} id={0} />
+        <h1>{ this.props.store.state.keyword }</h1>
       </div>
     );
   }

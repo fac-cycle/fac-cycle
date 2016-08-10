@@ -3,8 +3,9 @@ import React from 'react';
 
 class ItemTitle extends React.Component {
   render() {
+    const index = this.props.id
     return (
-      <span className="itemTitle">{this.props.title}</span>
+      <span className="itemTitle">{this.props.store.state.itemsArray[index].title}</span>
     );
   }
 }
