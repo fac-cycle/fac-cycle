@@ -15,7 +15,7 @@ class ItemContainer extends React.Component {
 }
 
 ItemContainer.propTypes = {
-  item: React.PropTypes.object.shapeOf({
+  item: React.PropTypes.shape({
     image_url: React.PropTypes.string,
   }),
 };
