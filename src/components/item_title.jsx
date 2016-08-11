@@ -1,10 +1,10 @@
-/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prefer-stateless-function, react/prop-types */
 import React from 'react';
 
 class ItemTitle extends React.Component {
   render() {
     return (
-      <span className="itemTitle">{this.props.title}</span>
+      <span className="itemTitle">{this.props.item.title}</span>
     );
   }
 }

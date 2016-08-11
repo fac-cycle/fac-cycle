@@ -1,5 +1,8 @@
-/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prefer-stateless-function, react/prop-types */
 import React from 'react';
+import Homz from './homepage.jsx';
+import Stranger from './login_wrapper.jsx';
+import Item from './single_item_view.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -39,16 +42,32 @@ class App extends React.Component {
     };
     this.state = {
       isFetching: false,
+      itemsArray: [],
     };
+    this.dispatch({
+      async: true,
+      type: 'GET_ITEMS',
+    });
   }
   render() {
-    // const store = { state: this.state, dispatch: this.dispatch };
+    const store = { state: this.state, dispatch: this.dispatch };
+    if (this.props.location.query.jwt) {
+      localStorage.setItem('token', this.props.location.query.jwt);
+    }
+    if (localStorage.token == null) {
+      return (
+        <Stranger store={store} />
+      );
+    } else if (String(this.props.route.path).indexOf('/item') > -1) {
+      return (
+        <Item store={store} id={Number(this.props.params.id)} />
+      );
+    }
     return (
-      <div>
-        <h1>Hello world</h1>
-      </div>
+      <Homz store={store} />
     );
   }
 }
+
 
 export default App;

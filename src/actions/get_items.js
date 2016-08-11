@@ -7,7 +7,7 @@ const getItems = (keyword, category, userId, itemId, callback) => {
    .query({ keyword, category, userId, itemId })
    .end((err, res) => {
      if (err) callback(err);
-     else callback(err, res.rows);
+     else callback(err, res.body);
    });
 };
 

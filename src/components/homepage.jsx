@@ -1,6 +1,5 @@
 /* eslint-disable react/prefer-stateless-function, import/no-unresolved */
  import React from 'react';
-
  import ItemContainerWrapper from './item_container_wrapper.jsx';
  import Navigator from './navigator.jsx';
 

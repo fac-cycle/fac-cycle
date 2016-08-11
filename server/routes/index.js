@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 const staticRoutes = require('./static_routes');
 const userRoutes = require('./user_routes');
 const itemRoutes = require('./item_routes');
@@ -22,7 +23,13 @@ module.exports = [
     method: 'GET',
     path: '/items',
     handler(request, reply) {
-      getItems((err, res) => reply(err || res.rows));
+      getItems((err, res) => reply(err || res.rows.map((el) => {
+        return Object.assign(el, {
+          imageUrl: el.image_url,
+          userId: el.user_id,
+        });
+      }
+      )));
     },
   },
 ];

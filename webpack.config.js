@@ -6,15 +6,15 @@ const stringifyValues = o =>
         .reduce((acc, k) => Object.assign(acc, { [k]: JSON.stringify(o[k]) }), {});
 
 const environmentVariables = process.env.DEVELOPMENT === 'true' ?
-  ({ SERVER_ROOT: 'http://example.com:3000' }) : ({ SERVER_ROOT: '' });
+  ({ SERVER_ROOT: 'http://localhost:3000' }) : ({ SERVER_ROOT: '' });
 
 module.exports = {
   entry: './src/main.jsx',
   output: {
     path: './public',
     filename: 'bundle.js',
-  },
-  devServer: {
+    },
+    devServer: {
     inline: true,
     contentBase: './public',
     port: 4000,
@@ -28,4 +28,5 @@ module.exports = {
   plugins: [
     (new webpack.DefinePlugin({ 'process.env': stringifyValues(environmentVariables) })),
   ],
+  devtool: 'source-map',
 };

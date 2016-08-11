@@ -10,9 +10,13 @@ class SearchForm extends React.Component {
     };
   }
   handleInput(event) {
+    this.setState({ keyword: `${event.target.value}` });
+  }
+  handleSubmit(event) {
+    event.preventDefault();
     this.props.store.dispatch({
       type: 'UPDATE_INPUT',
-      keyword: event.target.value,
+      keyword: this.state.keyword,
     });
   }
   handleSelect(event) {
@@ -31,15 +35,15 @@ class SearchForm extends React.Component {
 
   render() {
     const dropdown =
-      ['all', 'junk', 'utensils', 'rabbits', 'wigs', 'slaves']
-      .map((selectValue, i) =>
-        <option
-          key={i}
-          className="dropdownOption"
-          value={selectValue}
-        >{selectValue}
-        </option>
-      );
+    ['all', 'junk', 'utensils', 'rabbits', 'wigs', 'slaves']
+    .map((selectValue, i) =>
+      <option
+        key={i}
+        className="dropdownOption"
+        value={selectValue}
+      >{selectValue}
+      </option>
+    );
     return (
       <div>
         <select
@@ -47,11 +51,13 @@ class SearchForm extends React.Component {
           onChange={this.handleSelect.bind(this)}
         >{dropdown}
         </select>
-        <input
-          type="text"
-          value={this.props.store.state.keyword}
-          onChange={this.handleInput.bind(this)}
-        />
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <input
+            type="text"
+            value={this.state.keyword}
+            onChange={this.handleInput.bind(this)}
+          />
+        </form>
         <button onClick={this.handleClick.bind(this)} className="searchButton">GO!</button>
       </div>
     );

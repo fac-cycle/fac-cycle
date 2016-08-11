@@ -7,7 +7,7 @@ class Logo extends React.Component {
       <div
         className="logo"
         style={{
-          backgroundImage: 'url(images/Ren.jpg)',
+          backgroundImage: 'url(assets/facycle-letters_for_homepage.png)',
           height: '30vh',
           width: '40vh' }}
       >

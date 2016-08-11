@@ -10,7 +10,6 @@ class Dropbox extends React.Component {
   }
 
   onDrop(file) {
-    console.log('Recieved files: ', file);
     this.setState({
       files: this.state.files.concat(file),
     });
