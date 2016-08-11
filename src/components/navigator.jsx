@@ -8,7 +8,7 @@ import SearchForm from './searchform.jsx';
 class Navigator extends React.Component {
   render() {
     return (
-      <div className="navigatorContainer">
+      <div className="navigatorContainer animated bounceInRight">
         <div className="navigatorHeader">
           <Logo />
           <LogoMenu />

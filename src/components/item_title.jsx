@@ -4,7 +4,7 @@ import React from 'react';
 class ItemTitle extends React.Component {
   render() {
     return (
-      <span className="itemTitle">My crappy sofa bed</span>
+      <span className="itemTitle animated bounce">My crappy sofa bed</span>
     );
   }
 }

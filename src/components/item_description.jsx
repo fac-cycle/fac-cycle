@@ -4,7 +4,7 @@
  class ItemDescription extends React.Component {
    render() {
      return (
-       <span className="itemDescription">This is the worst sofa that the world has ever seen.</span>
+       <span className="itemDescription animated bounce">This is the worst sofa that the world has ever seen.</span>
      );
    }
  }

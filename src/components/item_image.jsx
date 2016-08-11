@@ -6,7 +6,7 @@ class Image extends React.Component {
     return (
       <div>
         <img
-          className="image"
+          className="itemImage animated bounce"
           src={'assets/crapsofa.png'}
           alt="item not found"
         />

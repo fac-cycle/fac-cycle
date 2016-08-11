@@ -9,7 +9,7 @@ class SingleItemPage extends React.Component {
     return (
       <div className="itemPageWrapper">
         <Navigator {...this.props} />
-        <SingleItemWrapper {...this.props} />
+        <SingleItemWrapper />
       </div>
     );
   }

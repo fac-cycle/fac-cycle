@@ -1,0 +1,38 @@
+.itemTitle {
+  position: absolute;
+  left: 5vw;
+  top: 65vh;
+  font-size: 18px;
+  color: $color;
+}
+
+.itemDescription {
+  position: absolute;
+  width: 50vw;
+  height: 20vh;
+  left: 5vw;
+  top: 135vh;
+  color: $color;
+}
+
+.itemImage {
+  position: absolute;
+  width: 50vw;
+  height: 60vh;
+  left: 5vw;
+  top: 70vh;
+  border: 2px solid #979797;
+  border-radius: 0px 0px 0px 0px 2px 2px 2px 2px;
+}
+
+.map {
+  border: 2px solid #979797;
+  border-radius: 0px 0px 0px 0px 2px 2px 2px 2px;
+  width: 35vw;
+  height: 60vh;
+  position: absolute;
+  right: 5vw;
+  top: 70vh;
+  background-position: center;
+  background-image: url("http://www.i-cherubini.it/mauro/blog/uploads/images/torino_google-map.png");
+}
