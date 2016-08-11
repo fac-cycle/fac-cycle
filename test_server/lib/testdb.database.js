@@ -142,7 +142,7 @@ test.serial.cb('gets item from database', t => {
   };
   addUserDatabase(client, fakeUser, () => {
     addItemDatabase(client, fakeItem, () => {
-      getItemDatabase(client, 'sofa', 'furniture', 1, 1,
+      getItemDatabase(client, null, null, null, null,
       (getItemDatabaseErr, getItemDatabaseReply) => {
         if (getItemDatabaseErr) throw getItemDatabaseErr;
         const actual = getItemDatabaseReply.rows[0];
