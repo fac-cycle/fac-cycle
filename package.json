@@ -17,7 +17,8 @@
     "lint": "eslint './+(src|test_src|server|test_server)/**/*.+(js|jsx)'",
     "webpack-dev": "DEVELOPMENT=true webpack-dev-server",
     "webpack-build": "DEVELOPMENT=false webpack",
-    "start-server": "REDIRECT_ROOT='http://localhost:4000' nodemon server"
+    "start-server": "REDIRECT_ROOT='http://localhost:4000' nodemon server",
+    "build-dummy-data": "node ./build-dummy-data"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^6.0.0",
     "ghooks": "^1.3.2",
+    "jwt-decode": "^2.1.0",
     "node-sass": "^3.8.0",
     "nyc": "^7.1.0",
     "sass-loader": "^0.5.0",
@@ -74,6 +76,7 @@
     "colors": "^1.1.2",
     "env2": "^2.1.0",
     "hapi": "^14.1.0",
+    "hapi-cors-headers": "^1.0.0",
     "inert": "^4.0.1",
     "jsonwebtoken": "^7.1.7",
     "pg": "^6.0.3",
