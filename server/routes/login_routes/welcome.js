@@ -56,7 +56,7 @@ const welcome = {
         }, userToken);
 
         const jsonWebToken = jwt.sign(jwtpayload, process.env.JWT_SECRET);
-
+        console.log('---->', REDIRECT_ROOT);
         reply.redirect(`${REDIRECT_ROOT}?jwt=${jsonWebToken}`);
       });
     });

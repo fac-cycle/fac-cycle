@@ -18,7 +18,8 @@
     "webpack-dev": "DEVELOPMENT=true webpack-dev-server",
     "webpack-build": "DEVELOPMENT=false webpack",
     "start-server": "REDIRECT_ROOT='http://localhost:4000' nodemon server",
-    "build-dummy-data": "node ./build-dummy-data"
+    "build-dummy-data": "node ./build-dummy-data",
+    "start": "node server"
   },
   "repository": {
     "type": "git",
