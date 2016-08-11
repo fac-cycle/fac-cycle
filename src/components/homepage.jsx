@@ -19,7 +19,7 @@
      return (
        <div className="homepageContainer">
          <Navigator {...this.props} />
-         <ItemContainerWrapper {...this.props} />
+         <ItemContainerWrapper />
        </div>
      );
    }

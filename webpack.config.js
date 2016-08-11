@@ -19,6 +19,7 @@ module.exports = {
     contentBase: './public',
     port: 4000,
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       { test: /\.js(x)*$/, exclude: /node_modules/, loader: 'babel' },

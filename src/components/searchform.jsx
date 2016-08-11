@@ -1,34 +1,8 @@
 /* eslint-disable react/jsx-no-bind */
+/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 
 class SearchForm extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      keyword: '',
-      category: 'all',
-    };
-  }
-  handleInput(event) {
-    this.props.store.dispatch({
-      type: 'UPDATE_INPUT',
-      keyword: event.target.value,
-    });
-  }
-  handleSelect(event) {
-    this.props.store.dispatch({
-      type: 'UPDATE_CATEGORY',
-      category: event.target.value,
-    });
-  }
-  handleClick() {
-    this.props.store.dispatch({
-      type: 'GET_ITEMS',
-      keyword: event.target.value,
-      async: true,
-    });
-  }
-
   render() {
     const dropdown =
       ['all', 'junk', 'utensils', 'rabbits', 'wigs', 'slaves']
@@ -41,27 +15,19 @@ class SearchForm extends React.Component {
         </option>
       );
     return (
-      <div>
+      <div className="searchInputForm">
         <select
           className="dropdown"
-          onChange={this.handleSelect.bind(this)}
         >{dropdown}
         </select>
         <input
+          className="inputField"
           type="text"
-          value={this.props.store.state.keyword}
-          onChange={this.handleInput.bind(this)}
         />
-        <button onClick={this.handleClick.bind(this)} className="searchButton">GO!</button>
+        <button className="searchButton">GO!</button>
       </div>
     );
   }
 }
-
-SearchForm.propTypes = {
-  store: {
-    dispatch: React.PropTypes.dispatch,
-  },
-};
 
 export default SearchForm;
