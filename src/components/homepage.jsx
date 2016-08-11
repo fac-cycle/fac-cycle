@@ -15,9 +15,6 @@
      });
    }
    render() {
-     console.log(localStorage);
-     // validate whats inside local storage
-     // use browserHistory.push('some/path') to redirect if not valid
      return (
        <div className="homepageContainer">
          <Navigator {...this.props} />

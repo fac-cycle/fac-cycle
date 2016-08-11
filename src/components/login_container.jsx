@@ -6,7 +6,6 @@ import Button from './login.jsx';
 
 class LoginContainer extends React.Component {
   click() {
-    console.log('cicked');
     agent
       .get(`${document.URL.split(4000)[0]}3000/login`)
       .set('Accept', 'application/json')

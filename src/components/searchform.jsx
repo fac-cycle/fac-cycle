@@ -10,12 +10,10 @@ class SearchForm extends React.Component {
     };
   }
   handleInput(event) {
-    console.log(this.state.keyword);
     this.setState({ keyword: `${event.target.value}` });
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.props);
     this.props.store.dispatch({
       type: 'UPDATE_INPUT',
       keyword: this.state.keyword,

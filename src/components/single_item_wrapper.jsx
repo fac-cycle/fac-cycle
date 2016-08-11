@@ -10,9 +10,6 @@ class SingleItemWrapper extends React.Component {
     const item = this.props.store.state.itemsArray.filter((el) => {
       return el.id === this.props.id;
     })[0];
-    console.log(this.props.store.state.itemsArray);
-    console.log(this.props.id);
-    console.log(item);
     return (
       <div className="itemWrapper">
         <ItemTitle {...this.props} item={item} />

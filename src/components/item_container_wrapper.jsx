@@ -7,7 +7,6 @@ import ToggleContainerViews from './toggle.jsx';
 class ItemContainerWrapper extends React.Component {
   render() {
     const itemArray = this.props.store.state.itemsArray || [];
-    console.log(itemArray);
     // eslint-disable-next-line arrow-body-style
     const jsxItemArray = itemArray.map((item) => {
       return (
