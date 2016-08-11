@@ -18,6 +18,7 @@ const getItemDatabase = (client, keywordInput,
       array.push(obj[key]);
     }
   });
+  let querystring = '';
   partquerystring = partquerystring.slice(0, -5);
   if (keywordInput !== null && partquerystring.length > 3) {
     partquerystring += `AND title LIKE $${count}`;
@@ -25,8 +26,10 @@ const getItemDatabase = (client, keywordInput,
   } else if (keywordInput !== null && partquerystring.length < 3) {
     array.push(`%${keywordInput}%`);
     partquerystring = 'title LIKE $1';
+  } else {
+    querystring = 'SELECT * FROM items';
   }
-  const querystring = `SELECT * FROM items
+  querystring = `SELECT * FROM items
    WHERE ${partquerystring}`;
   client.query(
       querystring,
