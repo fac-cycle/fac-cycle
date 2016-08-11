@@ -13,8 +13,8 @@ module.exports = {
   output: {
     path: './public',
     filename: 'bundle.js',
-  },
-  devServer: {
+    },
+    devServer: {
     inline: true,
     contentBase: './public',
     port: 4000,

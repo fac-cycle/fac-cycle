@@ -1,9 +1,10 @@
 /* eslint-disable react/prefer-stateless-function */
-import { Router, Route, Link, HashHistory } from 'react-router';
-import dummyItems from './dummy_items.js';
+import { Router, Route, Link, browserHistory } from 'react-router';
 import React from 'react';
 import Homz from './homepage.jsx';
+import Stranger from './login_wrapper.jsx';
 import Item from './single_item_view.jsx';
+import jwt from 'jwt-decode'
 
 class App extends React.Component {
   constructor() {
@@ -52,17 +53,27 @@ class App extends React.Component {
 
   }
   render() {
-        const store = { state: this.state, dispatch: this.dispatch };
-    if (this.props.route.path.includes('/item')) { //Find out what this is
+    const store = { state: this.state, dispatch: this.dispatch };
+    if (String(this.props.params.path).indexOf('jwt') >-1){
+      console.log('here')
+      localStorage.setItem('token', this.props.params.path.split('=')[1]);
+    } else if(localStorage.token == null){
+      return(
+              <Stranger  store={store} /> 
+            ) 
+    }   
+  else if (this.props.params.path.includes('/item') {
       return (
         <Item store={store} id={Number(this.props.params.id)}/>
       );
-    } else {
+    }  else {
       return (
         <Homz store={store}/>
-      );
-    }
+      )
+    } 
   }
 }
+
+
 
 export default App;
