@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prefer-stateless-function, react/prop-types */
 import React from 'react';
 
 class Image extends React.Component {
@@ -6,7 +6,7 @@ class Image extends React.Component {
     return (
       <div>
         <img
-          className='image'
+          className="image"
           src={this.props.item.imageUrl}
           alt="item not found"
         />

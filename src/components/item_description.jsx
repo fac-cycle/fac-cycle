@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prefer-stateless-function, react/prop-types */
  import React from 'react';
 
  class ItemDescription extends React.Component {

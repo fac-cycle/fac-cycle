@@ -11,7 +11,7 @@ class SearchForm extends React.Component {
   }
   handleInput(event) {
     console.log(this.state.keyword);
-    this.setState({keyword: `${event.target.value}`});
+    this.setState({ keyword: `${event.target.value}` });
   }
   handleSubmit(event) {
     event.preventDefault();
@@ -37,32 +37,32 @@ class SearchForm extends React.Component {
 
   render() {
     const dropdown =
-      ['all', 'junk', 'utensils', 'rabbits', 'wigs', 'slaves']
-        .map((selectValue, i) =>
-          <option
+    ['all', 'junk', 'utensils', 'rabbits', 'wigs', 'slaves']
+    .map((selectValue, i) =>
+      <option
         key={i}
         className="dropdownOption"
         value={selectValue}
-        >{selectValue}
-        </option>
-        );
-      return (
-        <div>
+      >{selectValue}
+      </option>
+    );
+    return (
+      <div>
         <select
-        className="dropdown"
-        onChange={this.handleSelect.bind(this)}
+          className="dropdown"
+          onChange={this.handleSelect.bind(this)}
         >{dropdown}
         </select>
         <form onSubmit={this.handleSubmit.bind(this)}>
-        <input
-        type="text"
-        value={this.state.keyword}
-        onChange={this.handleInput.bind(this)}
+          <input
+            type="text"
+            value={this.state.keyword}
+            onChange={this.handleInput.bind(this)}
           />
         </form>
         <button onClick={this.handleClick.bind(this)} className="searchButton">GO!</button>
-        </div>
-      );
+      </div>
+    );
   }
 }
 

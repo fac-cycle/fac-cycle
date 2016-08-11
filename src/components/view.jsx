@@ -6,11 +6,11 @@ class HandleView extends React.Component {
     this.state = {};
   }
   render() {
-    let { view } = this.props
-    if(view == null){
-      view = 'NearYou'
+    let { view } = this.props;
+    if (view == null) {
+      view = 'NearYou';
     }
-    var value;
+    let value = '';
     if (view === 'NearYou') {
       value = <h1>You are now in Near you</h1>;
     } else if (view === 'MyAds') {

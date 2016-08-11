@@ -1,3 +1,4 @@
+/* eslint-disable react/prefer-stateless-function, react/prop-types, arrow-body-style */
 import React from 'react';
 import Post from './post.jsx';
 

@@ -9,9 +9,9 @@ class Routers extends React.Component {
   render() {
     return (
       <Router history={browserHistory}>
-      <Route path="/" component={App} />
-      <Route path="/:path" component={App} />
-      <Route path="/item/:id" component={App} />
+        <Route path="/" component={App} />
+        <Route path="/item/:id" component={App} />
+        <Route path="/:path" component={App} />
       </Router>
     );
   }

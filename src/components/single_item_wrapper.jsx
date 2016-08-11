@@ -1,4 +1,4 @@
-/* eslint-disable react/prefer-stateless-function, import/no-unresolved */
+/* eslint-disable react/prefer-stateless-function, arrow-body-style, react/prop-types */
 import React from 'react';
 
 import ItemImage from './item_image.jsx';
@@ -10,14 +10,14 @@ class SingleItemWrapper extends React.Component {
     const item = this.props.store.state.itemsArray.filter((el) => {
       return el.id === this.props.id;
     })[0];
-    console.log(this.props.store.state.itemsArray)
-    console.log(this.props.id)
-    console.log(item)
+    console.log(this.props.store.state.itemsArray);
+    console.log(this.props.id);
+    console.log(item);
     return (
       <div className="itemWrapper">
-      <ItemTitle {...this.props} item={item} />
-      <ItemImage {...this.props} item={item} />
-      <ItemDescription {...this.props} item={item} />
+        <ItemTitle {...this.props} item={item} />
+        <ItemImage {...this.props} item={item} />
+        <ItemDescription {...this.props} item={item} />
       </div>
     );
   }
