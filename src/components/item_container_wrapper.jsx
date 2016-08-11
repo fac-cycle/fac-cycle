@@ -7,14 +7,11 @@ import ToggleContainerViews from './toggle.jsx';
 class ItemContainerWrapper extends React.Component {
   render() {
     const itemArray = this.props.store.state.itemsArray || [];
-    // eslint-disable-next-line arrow-body-style
-    const jsxItemArray = itemArray.map((item) => {
-      return (
-        <div className="ItemContainer">
-          <Link to={`/item/${item.id}`}><ItemContainer {...this.props} item={item} /></Link>
-        </div>
-      );
-    });
+    const jsxItemArray = itemArray.map((item) =>
+      (<div className="ItemContainer">
+        <Link to={`/item/${item.id}`}><ItemContainer {...this.props} item={item} /></Link>
+      </div>)
+    );
     return (
       <div>
         <ToggleContainerViews />
