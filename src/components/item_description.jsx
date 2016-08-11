@@ -4,7 +4,7 @@
  class ItemDescription extends React.Component {
    render() {
      return (
-       <span className="itemDescription">{this.props.item.description}</span>
+       <span className={this.props.class}>{this.props.item.description}</span>
      );
    }
  }

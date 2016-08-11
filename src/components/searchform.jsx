@@ -12,13 +12,6 @@ class SearchForm extends React.Component {
   handleInput(event) {
     this.setState({ keyword: `${event.target.value}` });
   }
-  handleSubmit(event) {
-    event.preventDefault();
-    this.props.store.dispatch({
-      type: 'UPDATE_INPUT',
-      keyword: this.state.keyword,
-    });
-  }
   handleSelect(event) {
     this.props.store.dispatch({
       type: 'UPDATE_CATEGORY',
@@ -45,19 +38,18 @@ class SearchForm extends React.Component {
       </option>
     );
     return (
-      <div>
+      <div className="searchInputForm">
         <select
           className="dropdown"
           onChange={this.handleSelect.bind(this)}
         >{dropdown}
         </select>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input
+        <input 
+          className="inputField"
             type="text"
             value={this.state.keyword}
             onChange={this.handleInput.bind(this)}
           />
-        </form>
         <button onClick={this.handleClick.bind(this)} className="searchButton">GO!</button>
       </div>
     );

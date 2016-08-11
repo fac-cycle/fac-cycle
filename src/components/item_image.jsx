@@ -6,7 +6,7 @@ class Image extends React.Component {
     return (
       <div>
         <img
-          className="image"
+          className={this.props.class1}
           src={this.props.item.imageUrl}
           alt="item not found"
         />

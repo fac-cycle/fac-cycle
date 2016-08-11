@@ -4,14 +4,12 @@ import React from 'react';
 class LogoMenu extends React.Component {
   render() {
     return (
-      <div
+      <div>
+        <img
         className="logoMenu"
-        style={{
-          backgroundImage: 'url(assets/facycle_logo_letters.png)',
-          height: '30vh',
-          width: '40vh' }}
-      >
-      &nbsp;
+        alt="Menu"
+        src={'assets/menustyle3.svg'}
+        />
       </div>
      );
   }

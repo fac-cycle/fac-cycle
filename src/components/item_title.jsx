@@ -4,7 +4,7 @@ import React from 'react';
 class ItemTitle extends React.Component {
   render() {
     return (
-      <span className="itemTitle">{this.props.item.title}</span>
+      <span className={this.props.class1}>{this.props.item.title}</span>
     );
   }
 }

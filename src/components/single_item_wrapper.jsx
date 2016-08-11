@@ -12,9 +12,10 @@ class SingleItemWrapper extends React.Component {
     })[0];
     return (
       <div className="itemWrapper">
-        <ItemTitle {...this.props} item={item} />
-        <ItemImage {...this.props} item={item} />
-        <ItemDescription {...this.props} item={item} />
+        <ItemTitle {...this.props} class1="itemTitle animated bounce" item={item} />
+        <ItemImage {...this.props} class1="itemImage animated bounce" item={item} />
+        <ItemDescription {...this.props} class="itemDescription animated bounce" item={item} />
+        <div className="map"></div>
       </div>
     );
   }

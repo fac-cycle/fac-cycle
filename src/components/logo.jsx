@@ -4,14 +4,17 @@ import React from 'react';
 class Logo extends React.Component {
   render() {
     return (
-      <div
-        className="logo"
-        style={{
-          backgroundImage: 'url(assets/facycle-letters_for_homepage.png)',
-          height: '30vh',
-          width: '40vh' }}
-      >
-      &nbsp;
+      <div className="logo">
+        <img
+          className="logo_img"
+          alt=""
+          src={'assets/facycle_round_logo.svg'}
+            />
+        <img
+          className="logo_logotype"
+          alt=""
+          src={'assets/facycle_logo_letters.svg'}
+      />
       </div>
     );
   }
