@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="96px" height="18px" viewBox="0 0 96 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17248) - http://www.bohemiancoding.com/sketch -->
+    <title>C + C + FA + YCLE</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-110.000000, -43.000000)" font-size="21.7777778" font-family="Avenir Next">
+            <g id="C-+-C-+-FA-+-YCLE" sketch:type="MSLayerGroup" transform="translate(108.000000, 27.000000)">
+                <g id="C-+-C" transform="translate(41.026439, 23.058315) rotate(-15.000000) translate(-41.026439, -23.058315) translate(23.026439, 4.058315)" font-weight="420" fill="#93DBAC" sketch:type="MSTextLayer">
+                    <text id="C" transform="translate(18.193585, 18.933758) rotate(-21.000000) translate(-18.193585, -18.933758) ">
+                        <tspan x="5.31553663" y="25.7670916">C</tspan>
+                    </text>
+                </g>
+                <text id="FA" sketch:type="MSTextLayer" font-weight="normal" letter-spacing="1" fill="#FFFFFF">
+                    <tspan x="0.69045584" y="32.1423304">F</tspan>
+                    <tspan x="13.929567" y="32.1423304">A</tspan>
+                </text>
+                <text id="YCLE" sketch:type="MSTextLayer" font-weight="normal" letter-spacing="1" fill="#FFFFFF">
+                    <tspan x="43.1514383" y="32.1423304">YCL</tspan>
+                    <tspan x="85.5256606" y="32.1423304">E</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './sass/style.scss';
-import App from './components/app.jsx';
+import SingleItemPage from './components/single_item_view.jsx';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<SingleItemPage />, document.getElementById('app'));

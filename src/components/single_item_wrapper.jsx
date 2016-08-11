@@ -13,6 +13,7 @@ class SingleItemWrapper extends React.Component {
         <ItemTitle {...this.props} title={this.props.title} />
         <ItemImage {...this.props} imgClass={this.props.imgClass} imgUrl={this.props.imgUrl} />
         <ItemDescription {...this.props} description={this.props.description} />
+        <div className="map"></div>
       </div>
     );
   }

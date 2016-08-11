@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="81px" height="81px" viewBox="0 0 81 81" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17248) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="50%" x2="104.100048%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#FF4E01" offset="0%"></stop>
+            <stop stop-color="#6DD8A5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="-27.859933%" x2="50%" y2="264.99721%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop-HD" sketch:type="MSArtboardGroup" transform="translate(-17.000000, -13.000000)">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(16.000000, 16.007092)">
+                <ellipse id="Oval-1" fill="#86E9A8" sketch:type="MSShapeGroup" cx="41.0163399" cy="34.9947183" rx="32.4607843" ry="32.4771127"></ellipse>
+                <ellipse id="Oval-1-Copy" stroke="url(#linearGradient-1)" stroke-width="1.85714286" sketch:type="MSShapeGroup" cx="41.2679739" cy="35.2464789" rx="35.2287582" ry="35.2464789"></ellipse>
+                <path d="M41.7712418,70.4929577 C61.2275477,70.4929577 77,54.7125716 77,35.2464789 C77,15.7803861 61.2275477,0 41.7712418,0 C22.3149359,0 6.54248366,15.7803861 6.54248366,35.2464789 C6.54248366,54.7125716 22.3149359,70.4929577 41.7712418,70.4929577 Z" id="Oval-1-Copy-4" fill="url(#linearGradient-2)" sketch:type="MSShapeGroup"></path>
+                <g transform="translate(0.000000, 8.184073)" stroke-width="1.85714286" sketch:type="MSShapeGroup">
+                    <path d="M19.1222171,22.9738112 C22.2030803,10.6441596 43.7001673,3.55062235 54.8542433,5.35057181 C61.3782354,6.4033579 65.7711436,11.0453096 64.9196027,17.4350789 C61.3897151,43.9225534 4.75248085,48.8887808 22.141825,18.4421211" id="Path-3" stroke="#61A318"></path>
+                    <path d="M19.1222171,22.9738112 C22.2030803,10.6441596 43.7001673,3.55062235 54.8542433,5.35057181 C61.3782354,6.4033579 65.7711436,11.0453096 64.9196027,17.4350789 C61.3897151,43.9225534 4.75248085,48.8887808 22.141825,18.4421211" id="Path-3-Copy-2" stroke="#61A318"></path>
+                    <path d="M33.5996043,46.5860083 C24.5837016,38.0881118 28.6770483,16.2941333 35.4528352,7.58964785 C39.4159766,2.49841529 45.4229395,0.938730072 50.4459461,4.70412925 C71.267787,20.3128172 48.8353607,71.2129955 31.1738149,41.8451875" id="Path-3-Copy" stroke="#2C4E07"></path>
+                    <path d="M40.3859505,45.9890597 C28.4202396,42.9700904 21.5360861,21.904875 23.2829055,10.974882 C24.304616,4.58195547 28.8095487,0.277299737 35.0107078,1.11173337 C60.7163374,4.57070639 65.5359741,60.0701112 35.9880246,43.0301151" id="Path-3-Copy-3" stroke="#DCFFB6"></path>
+                    <path d="M56.872774,18.3109431 C58.0849676,30.6968123 41.7858859,44.4333715 31.6100133,46.5142299 C25.65817,47.7313189 20.4169921,44.9292219 19.1467362,38.7600372 C13.8811516,13.1869507 61.1273326,-10.3679375 55.6920799,23.4958073" id="Path-3-Copy-4" stroke="#23BD1B"></path>
+                    <path d="M28.647347,6.89638259 C40.1885681,5.16954343 53.6041176,22.0969695 55.9053131,32.8918095 C57.2512768,39.2056853 54.8136111,44.9008641 49.0883908,46.4727525 C25.3556672,52.9886927 1.67777119,3.35354756 33.5375469,7.97637166" id="Path-3-Copy-5" stroke="#397243"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
