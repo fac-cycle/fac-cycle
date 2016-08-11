@@ -8,7 +8,7 @@ const client = new pg.Client(process.env.DB_URL);
 const log = console.log.bind(console);
 const endClient = client.end.bind(client);
 
-const sql = fs.readFileSync('./dummy-data.txt').toString();
+const sql = fs.readFileSync('./test_server/fixtures/dummy_data.txt').toString();
 
 client.connect();
 client.query(sql)
