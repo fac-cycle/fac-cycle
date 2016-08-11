@@ -1,6 +1,10 @@
+@import 'partials/reset';
 @import 'partials/homepage';
 @import 'partials/login';
 @import 'partials/variables';
+@import 'partials/app';
+@import 'partials/navigator';
+
 
 .imgClass {
   background-size: contain;
@@ -21,10 +25,7 @@
 }
 
 .menu {
-  a {
-    text-decoration: none;
-    color: cyan;
-  }
+
 }
 
 .ulMenu {
