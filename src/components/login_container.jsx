@@ -6,7 +6,7 @@
  class LoginContainer extends React.Component {
    render() {
      return (
-       <div className="loginContainer">
+       <div className="loginContainer  animated rubberBand">
          <Logo {...this.props} />
          <LoginButton {...this.props} />
        </div>

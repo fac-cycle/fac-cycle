@@ -5,7 +5,7 @@
  class LoginWrapper extends React.Component {
    render() {
      return (
-       <div>
+       <div className="loginWrapper">
          <LoginContainer {...this.props} />
        </div>
      );
